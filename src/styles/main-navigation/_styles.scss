@@ -1,0 +1,145 @@
+@use '../susanoo';
+@use '../lists';
+@use '../links/mixins' as links;
+@use 'animations';
+
+.main-navigation {
+    --li-padding: susanoo.rem-calc(12);
+    --inital-animation-duration: 0.75s;
+    --links-animation-duration: 0.65s;
+    --links-animation-multiplyer: 2;
+    --links-color: white;
+
+    display: flex;
+    gap: susanoo.rem-calc(50);
+    padding: susanoo.rem-calc(36) 0;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: opacity var(--inital-animation-duration) ease-in-out, transform var(--inital-animation-duration) ease-in-out;
+    @media only screen and (max-width: 640px) {
+        display: none;
+    }
+    &.is-active {
+        opacity: 1;
+        transform: translateY(0);
+        li {
+            &::after {
+                animation: line var(--inital-animation-duration) calc(var(--inital-animation-duration) * 1.5) ease forwards;
+            }
+            &:first-child {
+                &::before {
+                    animation: line var(--inital-animation-duration) calc(var(--inital-animation-duration) * 1.5) ease forwards;
+                }
+            }
+            &:nth-child(odd) {
+                a {
+                    span {
+                        color: var(--links-color);
+                        transition: color 0.3s calc((var(--links-animation-duration) / var(--links-animation-multiplyer)) + var(--inital-animation-duration)) linear;
+                        &::before {
+                            animation: anchor1 var(--links-animation-duration) var(--inital-animation-duration) ease-in-out;
+                        }
+                    }
+                }
+            }
+            &:nth-child(3n) {
+                a {
+                    span {
+                        color: var(--links-color);
+                        transition: color 0.3s calc((var(--links-animation-duration) * var(--links-animation-multiplyer)) + var(--inital-animation-duration)) linear;
+                        &::before {
+                            animation: anchor1 var(--links-animation-duration) calc(var(--links-animation-duration) + var(--inital-animation-duration) + (var(--links-animation-duration) / (var(--links-animation-multiplyer) * 2))) ease-in-out reverse;
+                        }
+                    }
+                }
+            }
+            &:nth-child(even) {
+                a {
+                    span {
+                        color: var(--links-color);
+                        transition: color 0.3s calc(var(--links-animation-duration) + var(--inital-animation-duration)) linear;
+                        &::before {
+                            animation: anchor1 var(--links-animation-duration) calc((var(--links-animation-duration) / var(--links-animation-multiplyer) + var(--inital-animation-duration))) ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+        button {
+            opacity: 1;
+            transition: opacity var(--inital-animation-duration) var(--inital-animation-duration) ease-in-out;
+        }
+    }
+    a {
+        span {
+            display: block;
+            position: relative;
+            text-align: center;
+            color: transparent;
+            overflow: hidden;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: {
+                    color: var(--color-primary);
+                }
+                transform: translateY(105%);
+                height: 100%;
+                width: 100%;
+                transition: anchor1 0s;
+            }
+        }
+    }
+    .logo {
+        @include links.reset();
+        img {
+            min-width: susanoo.rem-calc(60);
+            min-height: susanoo.rem-calc(60);
+        }
+    }
+    ul {
+        @include lists.reset-list();
+        display: flex;
+        gap: calc(#{susanoo.rem-calc(64)} - var(--li-padding));
+    }
+    li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 susanoo.rem-calc(20);
+        &::after {
+            content: '';
+            position: absolute;
+            height: 0;
+            width: 2px;
+            top: 45%;
+            right: 0;
+            background: {
+                color: var(--color-primary);
+            }
+        }
+        &:first-child {
+            &::before {
+                content: '';
+                position: absolute;
+                height: 0;
+                width: 2px;
+                top: 45%;
+                left: 0;
+                background: {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+    button {
+        opacity: 0;
+        margin: {
+            left: auto;
+        }
+    }
+}
