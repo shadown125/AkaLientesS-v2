@@ -43,6 +43,7 @@
     "postcss-cli": "^9.1.0",
     "postcss-csso": "^6.0.0",
     "sass": "^1.52.1",
+    "svgo": "^2.8.0",
     "ts-jest": "^27.1.1",
     "vue-jest": "^3.0.4"
   }
