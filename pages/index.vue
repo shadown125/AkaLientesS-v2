@@ -1,9 +1,10 @@
 <template>
-    <div class="app-container" />
+    <div class="app" />
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import '../static/main.css'
 
 export default Vue.extend({
     name: 'IndexPage'

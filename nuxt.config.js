@@ -26,8 +26,7 @@ export default {
         ],
         link: [
             { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-            { rel: 'apple-touch-icon', href: '/favicon.png' },
-            { rel: 'stylesheet', href: '/main.css' }
+            { rel: 'apple-touch-icon', href: '/favicon.png' }
         ]
     },
     components: true,
