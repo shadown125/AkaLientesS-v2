@@ -30,7 +30,9 @@ export default {
         ]
     },
     components: true,
+    image: {},
     buildModules: [
-        '@nuxt/typescript-build'
+        '@nuxt/typescript-build',
+        '@nuxt/image'
     ]
 }
