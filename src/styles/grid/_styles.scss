@@ -1,0 +1,8 @@
+@use '../susanoo';
+@use 'variables';
+
+.app {
+    font: {
+        family: variables.$font-family;
+    }
+}
