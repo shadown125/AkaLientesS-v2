@@ -1,0 +1,9 @@
+@use '../susanoo';
+
+p {
+    &:not(:first-child) {
+        margin: {
+            top: susanoo.rem-calc(16);
+        }
+    }
+}
