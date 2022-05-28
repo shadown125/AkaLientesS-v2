@@ -1,0 +1,56 @@
+@use 'animations';
+
+a {
+    --line-offset: -3px;
+
+    display: inline-block;
+    position: relative;
+    text: {
+        decoration: none;
+    }
+    color: white;
+    transition: color .2s linear, background-color .2s ease-in-out;
+    > span {
+        color: white;
+        transition: color .2s linear;
+    }
+    &:hover,
+    &:focus {
+        color: var(--color-primary);
+        outline: none;
+        > span {
+            color: var(--color-primary);
+        }
+        &::before {
+            width: 100%;
+        }
+        &::after {
+            width: 100%;
+            animation: hoverAnimation .65s cubic-bezier(.694,.048,.335,1) .15s;
+        }
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: var(--line-offset);
+        width: 0;
+        height: 3px;
+        background: {
+            color: var(--color-primary);
+        }
+        transition: all .25s cubic-bezier(.694,.048,.335,1)
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: var(--line-offset);
+        width: 0;
+        height: 3px;
+        background: {
+            color: var(--color-blue);
+        }
+        transition: width .75s cubic-bezier(.694,.048,.335,1) .15s, left .75s ease;
+    }
+}

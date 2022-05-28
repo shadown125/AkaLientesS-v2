@@ -1,0 +1,6 @@
+@mixin reset() {
+    &::before,
+    &::after {
+        content: unset;
+    }
+}
