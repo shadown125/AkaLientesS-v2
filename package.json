@@ -10,6 +10,16 @@
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js",
     "lintfix": "npm run lint:js -- --fix",
+    "style:build": "npm-run-all --parallel copy:* build:*",
+    "build:styles": "npm-run-all sass:build postcss:build",
+    "build:images": "imagemin src/pics/*.{jpg,png} --out-dir=static",
+    "copy:fonts": "copyfiles src/fonts/**/* static --flat",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:styles": "npm-run-all --parallel sass:watch postcss:watch",
+    "sass:build": "sass src/styles:static --no-source-map",
+    "sass:watch": "sass src/styles:src/build --no-source-map --watch",
+    "postcss:build": "postcss static/*.css --replace --env production",
+    "postcss:watch": "postcss src/build/*.css --watch --dir static",
     "test": "jest"
   },
   "dependencies": {
