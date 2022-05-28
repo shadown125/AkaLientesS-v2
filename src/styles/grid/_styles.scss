@@ -1,8 +1,15 @@
 @use '../susanoo';
 @use 'variables';
 
+html {
+    font: {
+        size: clamp(#{susanoo.rem-calc(16)}, 2vw, #{susanoo.rem-calc(22)});
+    }
+}
+
 .app {
     font: {
         family: variables.$font-family;
     }
+    padding: 0 susanoo.rem-calc(40);
 }
