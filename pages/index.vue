@@ -6,6 +6,8 @@
             :particlesInit="particlesInit"
         />
         <TheNavigation />
+        <TheStaging />
+        <TheFloatingLines />
     </div>
 </template>
 
