@@ -1,0 +1,28 @@
+@use '../susanoo';
+
+@keyframes blink {
+    0% {
+        box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} black;
+    }
+    50% {
+        box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} black;
+    }
+    51% {
+        box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} var(--color-primary);
+    }
+    53% {
+        box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} black;
+    }
+    58% {
+        box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} black;
+    }
+    59% {
+        box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} var(--color-primary);
+    }
+    61% {
+        box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} black;
+    }
+    100% {
+        box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} black;
+    }
+}

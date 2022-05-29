@@ -1,0 +1,63 @@
+@use '../susanoo';
+@use '../lists';
+@use 'animations';
+
+.social-links {
+    --animation-duration: 0.55s;
+    --loaded-animation: 0.65s;
+
+    @include lists.reset-list();
+    display: flex;
+    flex: {
+        direction: column;
+    }
+    gap: susanoo.rem-calc(32);
+    transform: translateX(-100%);
+    transition: transform var(--animation-duration) ease-in-out;
+    &.is-active {
+        transform: translateX(0);
+        li {
+            &::before {
+                width: 0;
+            }
+        }
+        .icon {
+            &::before {
+                color: white;
+            }
+        }
+        .github {
+            &::after {
+                animation: blink 4s linear infinite;
+            }
+        }
+    }
+    li {
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: {
+                color: var(--color-primary);
+            }
+            transition: width var(--loaded-animation) var(--animation-duration) ease-in-out;
+        }
+    }
+    .icon {
+        &::before {
+            color: transparent;
+            transition: color 0.25s calc(var(--animation-duration) + var(--loaded-animation)) linear;
+        }
+    }
+    .github {
+        &:hover {
+            &::after {
+                animation: unset;
+            }
+        }
+    }
+}
