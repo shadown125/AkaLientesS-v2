@@ -34,5 +34,10 @@ export default {
     buildModules: [
         '@nuxt/typescript-build',
         '@nuxt/image'
-    ]
+    ],
+    build: {
+        extractCSS: {
+            ignoreOrder: false
+        }
+    }
 }
