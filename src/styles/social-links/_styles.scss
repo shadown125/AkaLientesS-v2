@@ -21,7 +21,7 @@
         top: susanoo.rem-calc(-20);
         left: 0;
         height: 0;
-        width: 4px;
+        width: var(--line-width);
         background: {
             color: var(--color-primary);
         }
