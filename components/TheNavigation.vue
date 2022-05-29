@@ -21,9 +21,11 @@
 </template>
 
 <script lang="ts">
+import { TheNavigationData } from '../types/theNavigation/theNavigationData'
+
 export default {
     name: 'TheNavigation',
-    data (): {active: string, loaded: string, links: {id: string, route: string, name: string}[]} {
+    data (): TheNavigationData {
         return {
             active: '',
             loaded: '',
