@@ -10,6 +10,7 @@ html {
 
 .app {
     --wrapper: #{susanoo.rem-calc(1440)};
+    --line-width: 4px;
 
     position: relative;
     font: {
