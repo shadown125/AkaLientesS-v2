@@ -1,5 +1,6 @@
 @use '../susanoo';
 @use 'variables';
+@use 'mixins';
 
 html {
     font: {
@@ -8,9 +9,11 @@ html {
 }
 
 .app {
+    --wrapper: #{susanoo.rem-calc(1440)};
+
+    position: relative;
     font: {
         family: variables.$font-family;
     }
-    padding: 0 susanoo.rem-calc(40);
     overflow: hidden;
 }
