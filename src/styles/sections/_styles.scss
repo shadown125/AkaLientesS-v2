@@ -1,0 +1,11 @@
+@use '../susanoo';
+
+section,
+.section {
+    --padding: #{susanoo.rem-calc(32)};
+
+    padding: var(--padding)  calc(var(--padding) + #{susanoo.rem-calc(8)});
+    @media only screen and (max-width: 640px) {
+        padding: calc(var(--padding) - #{susanoo.rem-calc(8)}) calc(var(--padding) - #{susanoo.rem-calc(8)});
+    }
+}
