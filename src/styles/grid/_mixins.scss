@@ -28,17 +28,37 @@
 }
 
 @mixin grid-item() {
+    --columns: #{variables.$grid-columns};
+
     grid: {
-        column: span variables.$grid-columns;
+        column: span var(--columns);
     }
     @include susanoo.breakpoint(medium) {
         grid: {
-            column: span var(--column-medium, variables.$grid-columns);
+            column: span var(--column-medium, var(--columns));
         }
     }
     @include susanoo.breakpoint(large-m) {
         grid: {
-            column: span var(--column-large, var(--column-medium, variables.$grid-columns));
+            column: span var(--column-large, var(--column-medium, var(--columns)));
+        }
+    }
+}
+
+@mixin grid-item-extend() {
+    --columns: #{variables.$grid-columns};
+
+    grid: {
+        column: var(--column-start) / span var(--columns);
+    }
+    @include susanoo.breakpoint(medium) {
+        grid: {
+            column: var(--column-start) /  span var(--column-medium, var(--columns));
+        }
+    }
+    @include susanoo.breakpoint(large-m) {
+        grid: {
+            column: var(--column-start) /  span var(--column-large, var(--column-medium, var(--columns)));
         }
     }
 }
