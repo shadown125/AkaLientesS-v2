@@ -16,13 +16,13 @@
     align-items: center;
     opacity: 0;
     transform: translateY(50%);
-    transition: opacity var(--inital-animation-duration) ease-in-out, transform var(--inital-animation-duration) ease-in-out;
     @media only screen and (max-width: 640px) {
         display: none;
     }
     &.is-loaded {
         opacity: 1;
         transform: translateY(0);
+        transition: opacity var(--inital-animation-duration) ease-in-out, transform var(--inital-animation-duration) ease-in-out;
         button {
             opacity: 1;
             transition: opacity var(--inital-animation-duration) var(--inital-animation-duration) ease-in-out;

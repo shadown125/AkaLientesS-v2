@@ -1,7 +1,12 @@
 <template>
     <header>
         <div class="wrapper">
-            <nav v-observe-visibility="isVisible" :class="['main-navigation', active, loaded]">
+            <nav v-observe-visibility="{
+                callback: isVisible,
+                intersection: {
+                    threshold: 1
+                }
+            }" :class="['main-navigation', active, loaded]">
                 <a href="/" class="logo">
                     <nuxt-img src="/brandLogo.png" width="80" height="80" />
                 </a>
