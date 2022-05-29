@@ -2,7 +2,7 @@
 
 .wrapper {
     max: {
-        width: susanoo.rem-calc(1440);
+        width: var(--wrapper);
     }
     margin: 0 auto;
 }
