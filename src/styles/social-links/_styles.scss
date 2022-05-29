@@ -8,12 +8,25 @@
 
     @include lists.reset-list();
     display: flex;
+    position: relative;
     flex: {
         direction: column;
     }
     gap: susanoo.rem-calc(32);
     transform: translateX(-100%);
     transition: transform var(--animation-duration) ease-in-out;
+    &::before {
+        content: '';
+        position: absolute;
+        top: susanoo.rem-calc(-20);
+        left: 0;
+        height: 0;
+        width: 4px;
+        background: {
+            color: var(--color-primary);
+        }
+        transition: height 2s calc(var(--animation-duration) + var(--loaded-animation)) ease-in-out;
+    }
     &.is-active {
         transform: translateX(0);
         li {
