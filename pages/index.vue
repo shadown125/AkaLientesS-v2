@@ -7,6 +7,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import '../static/main.css'
+import VueObserveVisibility from 'vue-observe-visibility'
+
+Vue.use(VueObserveVisibility)
 
 export default Vue.extend({
     name: 'IndexPage'
