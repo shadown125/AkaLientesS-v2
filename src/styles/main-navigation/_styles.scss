@@ -20,9 +20,15 @@
     @media only screen and (max-width: 640px) {
         display: none;
     }
-    &.is-active {
+    &.is-loaded {
         opacity: 1;
         transform: translateY(0);
+        button {
+            opacity: 1;
+            transition: opacity var(--inital-animation-duration) var(--inital-animation-duration) ease-in-out;
+        }
+    }
+    &.is-active {
         li {
             &::after {
                 animation: line var(--inital-animation-duration) calc(var(--inital-animation-duration) * 1.5) ease forwards;
@@ -65,10 +71,6 @@
                     }
                 }
             }
-        }
-        button {
-            opacity: 1;
-            transition: opacity var(--inital-animation-duration) var(--inital-animation-duration) ease-in-out;
         }
     }
     a {
