@@ -1,4 +1,7 @@
+@use '../susanoo';
+@use '../icons';
 @use 'animations';
+@use 'mixins';
 
 a {
     --line-offset: -3px;
@@ -52,5 +55,48 @@ a {
             color: var(--color-blue);
         }
         transition: width .75s cubic-bezier(.694,.048,.335,1) .15s, left .75s ease;
+    }
+    &.icon {
+        @include mixins.reset();
+        font: {
+            size: clamp(#{susanoo.rem-calc(30)}, 2vw, #{susanoo.rem-calc(48)})
+        }
+        width: clamp(#{susanoo.rem-calc(30)}, 2vw, #{susanoo.rem-calc(48)});
+        &:hover {
+            &::after {
+                box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} var(--color-primary);
+            }
+        }
+        &::before {
+            @include susanoo.icon(null, true);
+        }
+        &::after {
+            content: '';
+            margin: {
+                left: susanoo.rem-calc(-16);
+            }
+            border: {
+                radius: 100%;
+            }
+            transition: box-shadown 1s linear;
+        }
+        > span {
+            display: none;
+        }
+        &.github {
+            &::before {
+                @include susanoo.icon(icons.$icon-github, false);
+            }
+        }
+        &.twitter {
+            &::before {
+                @include susanoo.icon(icons.$icon-twitter, false);
+            }
+        }
+        &.linkedin {
+            &::before {
+                @include susanoo.icon(icons.$icon-linkedin, false);
+            }
+        }
     }
 }

@@ -2,5 +2,10 @@
     &::before,
     &::after {
         content: unset;
+        position: unset;
+        background: {
+            color: unset;
+        }
+        transition: unset;
     }
 }
