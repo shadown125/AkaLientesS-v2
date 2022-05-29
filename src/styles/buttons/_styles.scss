@@ -25,14 +25,13 @@ button {
     padding: susanoo.rem-calc(6) susanoo.rem-calc(18);
     transition: background-color 0.2s linear, transform 0.2s linear;
     &:hover {
-        //transform: translateY(-2px);
         box-shadow: 0 #{susanoo.rem-calc(2)} #{susanoo.rem-calc(32)} var(--color-primary);
         background: {
             color: var(--color-primary);
         }
         &::before,
         &::after {
-            transform: scale(1.3);
+            transform: scale(1.15);
             opacity: 0;
         }
     }
