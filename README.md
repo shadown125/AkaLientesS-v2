@@ -4,6 +4,8 @@ Hello, :)
 
 This is a [Nuxt.js](https://nuxtjs.org) project boostrapped with [`create-nuxt-app`](https://github.com/nuxt/create-nuxt-app)
 
+Preview website can be found under: https://akalientess-v2.netlify.app/
+
 ## Getting Started
 
 Will coming soon...
