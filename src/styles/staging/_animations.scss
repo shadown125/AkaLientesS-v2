@@ -1,0 +1,76 @@
+@keyframes blinking-letter {
+    0% {
+        color: grey;
+        filter: unset;
+    }
+    49% {
+        color: grey;
+        filter: unset;
+    }
+    50% {
+        color: var(--color-primary);
+        filter: brightness(200%);
+    }
+    51% {
+        color: var(--color-primary);
+        filter: brightness(200%);
+    }
+    60% {
+        color: var(--color-primary);
+        filter: brightness(200%);
+    }
+    61% {
+        color: grey;
+        filter: unset;
+    }
+    99% {
+        color: grey;
+        filter: unset;
+    }
+    100% {
+        color: var(--color-primary);
+        filter: brightness(200%);
+    }
+}
+
+@keyframes blinking-letter-before {
+    0% {
+        filter: unset;
+    }
+    49% {
+        filter: unset;
+    }
+    50% {
+        filter: blur(20px);
+    }
+    51% {
+        filter: blur(20px);
+    }
+    60% {
+        filter: blur(20px);
+    }
+    61% {
+        filter: unset;
+    }
+    99% {
+        filter: unset;
+    }
+    100% {
+        filter: blur(20px);
+    }
+}
+
+@keyframes travel-line {
+    0% {
+        top: -100%;
+        height: 40%;
+    }
+    15% {
+        top: 100%;
+        height: 0;
+    }
+    100% {
+        top: 100%;
+        height: 0;
+    }
+}

@@ -1,9 +1,10 @@
 @use '../susanoo';
 @use '../grid/mixins' as grid;
+@use 'animations';
 
 .staging {
     --delay-lines: 0.6s;
-    --delay-lines-travel: 0s;
+    --delay-lines-travel: 0.5s;
 
     &.is-active {
         .social-links {
@@ -51,6 +52,13 @@
         --columns: 4;
         --column-start: 3;
 
+        padding: 0 susanoo.rem-calc(24);
+        .headline {
+            display: flex;
+            flex: {
+                direction: column;
+            }
+        }
         &::before {
             top: -100%;
             right: -1px;
@@ -58,15 +66,15 @@
         &::after {
             --delay-lines-travel: 1s;
 
-            left: calc(100% / var(--columns));
+            left: calc(100% / 2);
             @include susanoo.breakpoint(large) {
-                left: calc(100% / var(--columns) - 3px);
+                left: calc(100% / 2 - 3px);
             }
         }
     }
     .letters {
         @include grid.grid-item();
-        --columns: 6;
+        --columns: 4;
 
         display: flex;
         flex: {
@@ -75,7 +83,8 @@
         justify-content: center;
         align-items: center;
         font: {
-            size: susanoo.rem-calc(60);
+            size: susanoo.rem-calc(80);
+            family: 'Noto Sans AK', sans-serif;
         }
         &::before {
             top: -100%;
@@ -83,27 +92,87 @@
             transition: top 1.5s calc(var(--delay-lines) / 3) linear, height 1.5s calc(var(--delay-lines) / 3) ease-in-out;
         }
         &::after {
-            height: 50%;
+            height: 0;
+            top: -100%;
             left: 50%;
             transform: translateX(-50%);
             @include susanoo.breakpoint(large) {
                 left: calc(50% - 2px);
             }
         }
-    }
-}
+        &.is-active {
+            > span {
+                color: var(--color-primary);
+                filter: brightness(200%);
+                &::before {
+                    filter: blur(20px);
+                }
+                &:nth-child(1) {
+                    --blinking-animation-duration: 2.5s;
 
-@keyframes travel-line {
-    0% {
-        top: -100%;
-        height: 40%;
-    }
-    15% {
-        top: 100%;
-        height: 0;
-    }
-    100% {
-        top: 100%;
-        height: 0;
+                    animation: blinking-letter var(--blinking-animation-duration) linear;
+                    &::before {
+                        animation: blinking-letter-before var(--blinking-animation-duration) linear;
+                    }
+                }
+                &:nth-child(3) {
+                    --letter-animation-delay: 1.5s;
+                }
+                &:nth-child(4) {
+                    --letter-animation-delay: 2s;
+                }
+                &:nth-child(5) {
+                    --letter-animation-delay: 3s;
+                }
+            }
+        }
+        > span {
+            --letter-animation-delay: 1s;
+
+            display: block;
+            position: relative;
+            color: grey;
+            filter: unset;
+            transition: color 0.1s var(--letter-animation-delay) linear, filter 0.1s var(--letter-animation-delay) linear;
+            &:not(:first-child) {
+                margin: {
+                    top: susanoo.rem-calc(-30)
+                }
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                mix-blend-mode: difference;
+                top: 0;
+                left: 0;
+                filter: unset;
+                transition: filter 0.25s var(--letter-animation-delay) linear;
+            }
+            &:nth-child(1) {
+                &::before {
+                    content: 'Y';
+                }
+            }
+            &:nth-child(2) {
+                &::before {
+                    content: 'O';
+                }
+            }
+            &:nth-child(3) {
+                &::before {
+                    content: 'L';
+                }
+            }
+            &:nth-child(4) {
+                &::before {
+                    content: 'O';
+                }
+            }
+            &:nth-child(5) {
+                &::before {
+                    content: 'N';
+                }
+            }
+        }
     }
 }

@@ -10,12 +10,15 @@
                     </li>
                 </ul>
                 <div class="content">
-                    <h1 class="headline h1">AkaLientesS</h1>
+                    <h1 class="headline h1">
+                        <span>Aka</span>
+                        <span>LientesS</span>
+                    </h1>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit magnam obcaecati quam, quod suscipit temporibus velit vero.
                     </p>
                 </div>
-                <div class="letters">
+                <div :class="['letters', active]">
                     <span>Y</span>
                     <span>O</span>
                     <span>L</span>
