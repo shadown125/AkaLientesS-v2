@@ -27,3 +27,12 @@
     url("/noto-sans-700.woff2") format("woff2");
     font-display: swap;
 }
+
+@font-face {
+    font-family: "Noto Sans AK";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Noto Sans AK Regular"), local("Noto-Sans-AK-Regular"),
+    url("/akronim-regular.woff2") format("woff2");
+    font-display: swap;
+}
