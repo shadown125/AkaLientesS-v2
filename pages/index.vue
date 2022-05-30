@@ -13,7 +13,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import '../static/main.css'
 import VueObserveVisibility from 'vue-observe-visibility'
 import Particles from 'particles.vue'
 import type { Engine } from 'tsparticles-engine'
@@ -74,3 +73,5 @@ export default Vue.extend({
     }
 })
 </script>
+
+<style src="static/main.css"></style>
