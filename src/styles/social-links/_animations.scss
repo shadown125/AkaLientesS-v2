@@ -26,3 +26,18 @@
         box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} black;
     }
 }
+
+@keyframes mask {
+    0% {
+        left: 0;
+        width: 0;
+    }
+    50% {
+        width: 100%;
+        right: 0;
+    }
+    100% {
+        width: 0;
+        right: 0;
+    }
+}
