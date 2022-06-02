@@ -36,3 +36,12 @@
     url("/akronim-regular.woff2") format("woff2");
     font-display: swap;
 }
+
+@font-face {
+    font-family: "Noto Sans Japan";
+    font-style: normal;
+    font-weight: 900;
+    src: local("Noto Sans Japan Bold"), local("Noto-Sans-Japan-Bold"),
+    url("/noto-sans-jp-bold.woff2") format("woff2");
+    font-display: swap;
+}
