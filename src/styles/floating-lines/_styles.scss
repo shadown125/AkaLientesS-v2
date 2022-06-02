@@ -4,21 +4,6 @@
 .floating-lines {
     --line-color: #1e1e1e;
 
-    @include grid.grid();
-    position: absolute;
-    top: 0;
-    left: 50%;
-    bottom: 0;
-    padding: {
-        top: 0;
-        bottom: 0;
-    }
-    transform: translateX(-50%);
-    width: 100%;
-    max: {
-        width: calc(var(--wrapper) + #{susanoo.rem-calc(79)});
-    }
-    z-index: -1;
     div {
         @include grid.grid-item-extend();
         border: {

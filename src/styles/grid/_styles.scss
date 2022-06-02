@@ -18,3 +18,21 @@ html {
     }
     overflow: hidden;
 }
+
+.absolute-grid {
+    @include mixins.grid();
+    position: absolute;
+    top: 0;
+    left: 50%;
+    bottom: 0;
+    padding: {
+        top: 0;
+        bottom: 0;
+    }
+    transform: translateX(-50%);
+    width: 100%;
+    max: {
+        width: calc(var(--wrapper) + #{susanoo.rem-calc(79)});
+    }
+    z-index: -1;
+}
