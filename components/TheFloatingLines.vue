@@ -1,5 +1,5 @@
 <template>
-    <div class="section floating-lines">
+    <div class="section absolute-grid floating-lines">
         <div />
         <div />
         <div />
