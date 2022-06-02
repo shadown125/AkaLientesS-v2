@@ -26,6 +26,7 @@
                     <span>N</span>
                 </div>
             </div>
+            <TheSidebarLetters />
         </div>
     </section>
 </template>
