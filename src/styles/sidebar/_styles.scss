@@ -4,6 +4,7 @@
 
 .sidebar {
     --animation-delay: 2s;
+    --animation-name: mask;
 
     &.is-active {
         .japanese-text {
@@ -12,10 +13,12 @@
                 position: absolute;
                 width: 50%;
                 height: 0;
-                animation: mask 1.5s 1.25s ease-in-out;
+                animation: var(--animation-name) 1.5s 1.25s ease-in-out;
             }
             &--left {
                &::before {
+                   --animation-name: mask-left;
+
                    background: {
                        color: var(--color-primary);
                    }
@@ -23,6 +26,8 @@
             }
             &--right {
                 &::before {
+                    --animation-name: mask-right;
+
                     background: {
                         color: var(--color-blue);
                     }
