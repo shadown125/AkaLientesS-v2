@@ -2,10 +2,18 @@
 @use '../grid/mixins' as grid;
 
 .floating-lines {
-    --line-color: #1e1e1e;
+    --line-color: #3d3d3d;
+    --line-animation-time: 1.5s;
+    --line-animation-delay: 0s;
 
+    &.is-active {
+        div {
+            height: 100%;
+        }
+    }
     div {
         @include grid.grid-item-extend();
+        height: 0;
         border: {
             right: {
                 color: var(--line-color);
@@ -13,9 +21,11 @@
                 width: 2px
             }
         }
+        transition: height var(--line-animation-time) var(--line-animation-delay) linear;
         &:nth-child(1) {
             --columns: 2;
             --column-start: 3;
+
             border: {
                 left: {
                     color: var(--line-color);
@@ -27,14 +37,17 @@
         &:nth-child(2) {
             --columns: 2;
             --column-start: 5;
+            --line-animation-delay: 1s;
         }
         &:nth-child(3) {
             --columns: 2;
             --column-start: 7;
+            --line-animation-delay: 0.4s;
         }
         &:nth-child(4) {
             --columns: 2;
             --column-start: 9;
+            --line-animation-delay: 0.7s;
         }
     }
 }

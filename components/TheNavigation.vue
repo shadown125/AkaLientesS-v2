@@ -51,8 +51,10 @@ export default {
     methods: {
         isVisible (visible: boolean) {
             if (visible) {
-                this.active = 'is-active'
-                this.loaded = 'is-loaded'
+                setTimeout(() => {
+                    this.active = 'is-active'
+                    this.loaded = 'is-loaded'
+                }, 1000)
 
                 return
             }

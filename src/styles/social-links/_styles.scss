@@ -48,13 +48,13 @@
             content: '';
             position: absolute;
             top: 0;
-            //left: 0;
             width: 0;
             height: 100%;
             background: {
                 color: var(--color-primary);
             }
-            animation: mask calc(var(--loaded-animation) * 2) var(--animation-duration) ease-in-out;
+            animation: mask calc(var(--loaded-animation) * 2) calc(var(--animation-duration) + 2.5s) ease-in-out;
+            z-index: 2;
         }
     }
     .icon {

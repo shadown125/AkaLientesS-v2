@@ -54,7 +54,9 @@ export default {
     methods: {
         isVisible (visible: boolean) {
             if (visible) {
-                this.active = 'is-active'
+                setTimeout(() => {
+                    this.active = 'is-active'
+                }, 2000)
             }
         }
     }

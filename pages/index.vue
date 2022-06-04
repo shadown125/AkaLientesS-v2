@@ -2,6 +2,7 @@
     <div class="app">
         <Particles
             id="tsparticles"
+            :class="['particle', active]"
             :options="options"
             :particlesInit="particlesInit"
         />
@@ -25,6 +26,7 @@ export default Vue.extend({
     name: 'IndexPage',
     data () {
         return {
+            active: '',
             options: {
                 interactivity: {
                     events: {
@@ -64,6 +66,13 @@ export default Vue.extend({
                     }
                 }
             }
+        }
+    },
+    mounted () {
+        if (document.readyState) {
+            setTimeout(() => {
+                this.active = 'is-active'
+            }, 2000)
         }
     },
     methods: {
