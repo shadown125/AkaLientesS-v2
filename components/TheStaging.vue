@@ -26,7 +26,7 @@
                     <span>N</span>
                 </div>
             </div>
-            <TheSidebarLetters />
+            <TheSidebarLetters :active="active" />
         </div>
     </section>
 </template>

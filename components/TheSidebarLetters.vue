@@ -1,5 +1,5 @@
 <template>
-    <div class="section absolute-grid">
+    <div :class="['section', 'absolute-grid', 'sidebar', active]">
         <div class="japanese-text japanese-text--left">
             <span>ネバーギブアップ</span>
         </div>
@@ -11,6 +11,12 @@
 
 <script lang="ts">
 export default {
-    name: 'TheSidebarLetters'
+    name: 'TheSidebarLetters',
+    props: {
+        active: {
+            type: String,
+            required: true
+        }
+    }
 }
 </script>

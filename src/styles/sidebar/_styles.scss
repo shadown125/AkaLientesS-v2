@@ -1,0 +1,68 @@
+@use '../susanoo';
+@use '../grid/mixins' as grid;
+@use 'animations';
+
+.sidebar {
+    --animation-delay: 2s;
+
+    &.is-active {
+        .japanese-text {
+            &::before {
+                content: '';
+                position: absolute;
+                width: 50%;
+                height: 0;
+                animation: mask 1.5s 1.25s ease-in-out;
+            }
+            &--left {
+               &::before {
+                   background: {
+                       color: var(--color-primary);
+                   }
+               }
+            }
+            &--right {
+                &::before {
+                    background: {
+                        color: var(--color-blue);
+                    }
+                }
+            }
+            span {
+                opacity: 1;
+            }
+        }
+    }
+    .japanese-text {
+        @include grid.grid-item-extend();
+        position: relative;
+        display: flex;
+        justify-content: center;
+        &--left {
+            --column-start: 1;
+            --columns: 2;
+
+            color: var(--color-primary);
+            transform: translateY(-25%);
+        }
+        &--right {
+            --column-start: 11;
+            --columns: 2;
+
+            color: var(--color-blue);
+            transform: translateY(25%);
+        }
+        > span {
+            opacity: 0;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            text-align: center;
+            transition: opacity 0s var(--animation-delay) linear;
+            font: {
+                family: "Noto Sans Japan";
+                size: susanoo.rem-calc(40);
+                weight: 900;
+            }
+        }
+    }
+}
