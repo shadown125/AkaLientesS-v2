@@ -1,9 +1,30 @@
+@use '../susanoo';
+
 body {
     background: {
         color: #000;
     }
     color: white;
     position: relative;
+    &::-webkit-scrollbar {
+        width: susanoo.rem-calc(12);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: {
+            color: var(--color-blue);
+            clip: padding-box;
+        }
+        border: {
+            radius: susanoo.rem-calc(32);
+            style: solid;
+            color: rgba(0, 0, 0, 0);
+        }
+        &:hover {
+            background: {
+                color: var(--color-primary);
+            }
+        }
+    }
     &::before {
         content: "";
         position: absolute;
