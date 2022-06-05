@@ -36,3 +36,7 @@ html {
     }
     z-index: -1;
 }
+
+.grid {
+    @include mixins.grid();
+}
