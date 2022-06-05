@@ -1,6 +1,6 @@
 <template>
     <div class="rain">
-        <div v-for="index in 50" :key="index" class="drop" :style="{left: index * 2 + '%', bottom: (getSecondRandomNumberForRain() + (Math.floor(Math.random() * (5 - 2 + 1) + 2)) - 1 + 100) + '%', animationDelay: '0.' + getRandomNumberForRain() + 's', animationDuration: rainDuration + '.' + getRandomNumberForRain() + 's'}">
+        <div v-for="index in 33" :key="index" class="drop" :style="{left: index * 3 + '%', bottom: (getSecondRandomNumberForRain() + (Math.floor(Math.random() * (5 - 2 + 1) + 2)) - 1 + 100) + '%', animationDelay: '0.' + getRandomNumberForRain() + 's', animationDuration: rainDuration + '.' + getRandomNumberForRain() + 's'}">
             <div class="stem" :style="{animationDelay: '0.' + getRandomNumberForRain() + 's', animationDuration: '0.5' + getRandomNumberForRain() + 's'}" />
         </div>
     </div>
