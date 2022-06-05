@@ -16,6 +16,7 @@
                 animation: var(--animation-name) 1.5s 1.25s ease-in-out;
             }
             &--left {
+                position: relative;
                &::before {
                    --animation-name: mask-left;
 
@@ -25,6 +26,7 @@
                }
             }
             &--right {
+                position: relative;
                 &::before {
                     --animation-name: mask-right;
 
@@ -36,6 +38,9 @@
             span {
                 opacity: 1;
             }
+        }
+        .rain {
+            opacity: 1;
         }
     }
     .japanese-text {
@@ -49,6 +54,9 @@
 
             color: var(--color-primary);
             transform: translateY(-25%);
+            .stem {
+                --background-color: linear-gradient(to bottom, rgba(255, 68, 69, 0), rgba(255, 68, 69, 0.3));
+            }
         }
         &--right {
             --column-start: 11;
@@ -56,6 +64,12 @@
 
             color: var(--color-blue);
             transform: translateY(25%);
+            .rain {
+                top: -50%;
+            }
+            .stem {
+                --background-color: linear-gradient(to bottom, rgba(35, 90, 166, 0), rgba(35, 90, 166, 0.45));
+            }
         }
         > span {
             opacity: 0;
@@ -69,5 +83,30 @@
                 weight: 900;
             }
         }
+    }
+    .rain {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        opacity: 0;
+        z-index: 1;
+        transition: opacity 0.45s 2.35s linear;
+    }
+    .drop {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 2px;
+        animation: drop 1s linear infinite;
+    }
+    .stem {
+        width: 1px;
+        height: 50%;
+        background: {
+            image: var(--background-color, var(--color-primary));
+        }
+        animation: stem 1s linear infinite;
     }
 }
