@@ -8,15 +8,15 @@
         filter: unset;
     }
     50% {
-        color: var(--color-primary);
+        color: var(--color-blue);
         filter: brightness(200%);
     }
     51% {
-        color: var(--color-primary);
+        color: var(--color-blue);
         filter: brightness(200%);
     }
     60% {
-        color: var(--color-primary);
+        color: var(--color-blue);
         filter: brightness(200%);
     }
     61% {
@@ -28,7 +28,7 @@
         filter: unset;
     }
     100% {
-        color: var(--color-primary);
+        color: var(--color-blue);
         filter: brightness(200%);
     }
 }
