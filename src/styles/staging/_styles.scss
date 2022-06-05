@@ -6,6 +6,9 @@
     --delay-lines: 0.6s;
     --delay-lines-travel: 0.5s;
 
+    padding: {
+        top: 0;
+    }
     opacity: 0;
     transition: opacity 0.75s linear;
     .grid {
