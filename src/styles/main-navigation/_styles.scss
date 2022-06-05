@@ -16,6 +16,9 @@
     align-items: center;
     opacity: 0;
     transform: translateY(50%);
+    min: {
+        height: 20vh;
+    }
     @media only screen and (max-width: 640px) {
         display: none;
     }
