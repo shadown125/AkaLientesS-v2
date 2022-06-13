@@ -1,0 +1,34 @@
+@keyframes mask-paragraph-before {
+    0% {
+        height: 0;
+    }
+    40% {
+        height: 75%;
+    }
+    50% {
+        height: 100%;
+    }
+    80% {
+        height: 60%;
+    }
+    100% {
+        height: 0;
+        top: 0;
+    }
+}
+
+@keyframes mask-paragraph-after {
+    0% {
+        height: 0;
+    }
+    50% {
+        height: 100%;
+    }
+    75% {
+        height: 30%;
+    }
+    100% {
+        height: 0;
+        top: 0;
+    }
+}

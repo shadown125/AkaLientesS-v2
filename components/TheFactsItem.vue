@@ -1,0 +1,56 @@
+<template>
+    <div :class="['grid', active]" v-observe-visibility="{callback: isVisible, intersection: {threshold: 0.75}}">
+        <div class="image">
+            <nuxt-img :src="image" :alt-text="[headline]" />
+            <h3 class="headline h3">
+                <span>{{ headline }}</span>
+            </h3>
+        </div>
+        <div class="content">
+            <h4 class="headline h4">
+                <span>Fact {{ index + 1 }}</span>
+            </h4>
+            <div class="description">
+                <p>
+                    {{ text }}
+                </p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script lang="ts">
+export default {
+    name: 'TheFactsItem',
+    props: {
+        image: {
+            type: String,
+            required: true
+        },
+        headline: {
+            type: String,
+            required: true
+        },
+        index: {
+            type: Number,
+            required: true
+        },
+        text: {
+            type: String,
+            required: true
+        }
+    },
+    data () {
+        return {
+            active: ''
+        }
+    },
+    methods: {
+        isVisible (visible: boolean) {
+            if (visible) {
+                this.active = 'is-active'
+            }
+        }
+    }
+}
+</script>
