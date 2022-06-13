@@ -7,9 +7,9 @@
                 </a>
                 <ul>
                     <li v-for="link in links" :key="link.id">
-                        <a :href="[link.route]">
+                        <NuxtLink :to="{ path: '/', hash: link.route }">
                             <span>{{ link.name }}</span>
-                        </a>
+                        </NuxtLink>
                     </li>
                 </ul>
                 <button class="button">
