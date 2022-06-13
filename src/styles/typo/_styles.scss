@@ -1,6 +1,9 @@
 @use '../susanoo';
 
 p {
+    font: {
+        size: susanoo.rem-calc(20);
+    }
     &:not(:first-child) {
         margin: {
             top: susanoo.rem-calc(16);
