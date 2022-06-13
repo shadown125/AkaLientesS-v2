@@ -31,6 +31,7 @@ export default {
     },
     components: true,
     image: {},
+    target: 'static',
     buildModules: [
         '@nuxt/typescript-build',
         '@nuxt/image'
