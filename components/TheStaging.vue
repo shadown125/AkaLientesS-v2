@@ -11,11 +11,11 @@
                 </ul>
                 <div class="content">
                     <h1 class="headline h1">
-                        <span>Aka</span>
-                        <span>LientesS</span>
+                        <TheTypewriter :words="['Aka']" tag="span" :speed="250" :delay="2500" />
+                        <TheTypewriter :words="['LientesS']" tag="span" :speed="200" :delay="2500" />
                     </h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit magnam obcaecati quam, quod suscipit temporibus velit vero.
+                    <p class="author">
+                        Created and Designed by Dawid Oleksiuk
                     </p>
                 </div>
                 <div :class="['letters', active]">
@@ -32,11 +32,15 @@
 </template>
 
 <script lang="ts">
+// @ts-ignore
+import baffle from 'baffle'
+
 export default {
     name: 'TheStaging',
-    data (): {active: string, links: {link: string, name: string}[]} {
+    data (): {active: string, animationDelay: Number, links: {link: string, name: string}[]} {
         return {
             active: '',
+            animationDelay: 2000,
             links: [{
                 link: 'https://github.com/shadown125',
                 name: 'github'
@@ -51,12 +55,20 @@ export default {
             }]
         }
     },
+    mounted () {
+        setTimeout(() => {
+            baffle('.author', {
+                characters: '░░▓ ▒▒/▒░ ░██░▒ █░> ██░▓░ █░░▒ ▓>/ ██▓▓ ▓>░/',
+                speed: 50
+            }).reveal(3000)
+        }, this.animationDelay + 1000)
+    },
     methods: {
         isVisible (visible: boolean) {
             if (visible) {
                 setTimeout(() => {
                     this.active = 'is-active'
-                }, 2000)
+                }, this.animationDelay)
             }
         }
     }

@@ -24,6 +24,9 @@
                 height: 75%;
             }
         }
+        .author {
+            opacity: 1;
+        }
         .content,
         .letters {
             &::before {
@@ -31,6 +34,10 @@
                 top: 0;
             }
         }
+    }
+    .author {
+        opacity: 0;
+        transition: opacity 0.4s 1s linear;
     }
     .social-links {
         @include grid.grid-item();
