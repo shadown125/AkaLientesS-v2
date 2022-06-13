@@ -1,0 +1,14 @@
+@keyframes mask {
+    0% {
+        left: 0;
+        width: 0;
+    }
+    50% {
+        right: 0;
+        width: 100%;
+    }
+    100% {
+        right: 0;
+        width: 0;
+    }
+}
