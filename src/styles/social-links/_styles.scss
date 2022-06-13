@@ -56,6 +56,15 @@
             animation: mask calc(var(--loaded-animation) * 2) calc(var(--animation-duration) + 2.5s) ease-in-out;
             z-index: 2;
         }
+        &:nth-child(even) {
+            a {
+                &:hover {
+                    &::after {
+                        box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} var(--color-blue);
+                    }
+                }
+            }
+        }
     }
     .icon {
         &::before {
