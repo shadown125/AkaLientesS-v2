@@ -1,5 +1,5 @@
 <template>
-    <div :class="['grid', active]" v-observe-visibility="{callback: isVisible, intersection: {threshold: 0.75}}">
+    <div :class="['grid', active]" v-observe-visibility="{callback: isVisible}">
         <div class="image">
             <nuxt-img :src="image" :alt-text="[headline]" />
             <h3 class="headline h3">
