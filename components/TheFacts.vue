@@ -1,5 +1,5 @@
 <template>
-    <section id="facts" :class="['facts', active]" v-observe-visibility="isVisible">
+    <section id="facts" :class="['facts', loaded, active]" v-observe-visibility="isVisible">
         <div class="wrapper">
             <h2 class="h2 headline title">
                 <span>Facts</span>
@@ -20,6 +20,7 @@ export default {
     data () {
         return {
             active: '',
+            loaded: '',
             facts: [
                 {
                     image: '/akaliBloodmoon3.png',
@@ -45,7 +46,11 @@ export default {
     methods: {
         isVisible (visible: boolean) {
             if (visible) {
-                this.active = 'is-active'
+                this.loaded = 'loaded'
+
+                setTimeout(() => {
+                    this.active = 'is-active'
+                }, 750)
             }
         }
     }

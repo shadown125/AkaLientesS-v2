@@ -6,6 +6,11 @@
 
 .facts {
     position: relative;
+    opacity: 0;
+    transition: opacity .35s linear;
+    &.loaded {
+        opacity: 1;
+    }
     &.is-active {
         .title {
             @include mask.mask();
