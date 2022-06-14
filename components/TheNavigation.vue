@@ -3,7 +3,7 @@
         <div class="wrapper">
             <nav v-observe-visibility="{callback: isVisible, intersection: {threshold: 1}}" :class="['main-navigation', active, loaded]">
                 <a href="/" class="logo">
-                    <nuxt-img src="/brandLogo.png" width="80" height="80" />
+                    <nuxt-img src="/brandLogo.png" width="80" height="80" alt-text="brand-logo" />
                 </a>
                 <ul>
                     <li v-for="link in links" :key="link.id">
