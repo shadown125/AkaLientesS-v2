@@ -128,6 +128,11 @@
             position: absolute;
             bottom: 10%;
             right: -30%;
+            font: {
+                family: 'Noto Sans AK', sans-serif;
+                size: susanoo.rem-calc(80);
+            }
+            letter-spacing: 4px;
             > span {
                 opacity: 0;
             }
