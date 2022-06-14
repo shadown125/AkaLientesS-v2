@@ -22,6 +22,16 @@
             }
         }
         transition: height var(--line-animation-time) var(--line-animation-delay) linear;
+        @include susanoo.media(medium) {
+            &:nth-child(1),
+            &:nth-child(3) {
+                @include susanoo.media(medium) {
+                    border: {
+                        right: unset;
+                    }
+                }
+            }
+        }
         &:nth-child(1) {
             --columns: 2;
             --column-start: 3;
