@@ -19,7 +19,7 @@
     min: {
         height: 20vh;
     }
-    @media only screen and (max-width: 640px) {
+    @include susanoo.media(small) {
         display: none;
     }
     &.is-loaded {
