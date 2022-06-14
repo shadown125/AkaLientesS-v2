@@ -33,12 +33,12 @@
     grid: {
         column: span var(--columns);
     }
-    @include susanoo.breakpoint(medium) {
+    @include susanoo.media(medium) {
         grid: {
             column: span var(--column-medium, var(--columns));
         }
     }
-    @include susanoo.breakpoint(large-m) {
+    @include susanoo.media(large) {
         grid: {
             column: span var(--column-large, var(--column-medium, var(--columns)));
         }
@@ -51,14 +51,14 @@
     grid: {
         column: var(--column-start) / span var(--columns);
     }
-    @include susanoo.breakpoint(medium) {
+    @include susanoo.media(medium) {
         grid: {
-            column: var(--column-start) /  span var(--column-medium, var(--columns));
+            column: var(--column-start-medium, var(--column-start)) /  span var(--column-medium, var(--columns));
         }
     }
-    @include susanoo.breakpoint(large-m) {
+    @include susanoo.media(large) {
         grid: {
-            column: var(--column-start) /  span var(--column-large, var(--column-medium, var(--columns)));
+            column: var(--column-start-large, var(--column-start-medium, var(--column-start))) /  span var(--column-large, var(--column-medium, var(--columns)));
         }
     }
 }
