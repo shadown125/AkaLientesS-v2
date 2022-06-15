@@ -67,6 +67,28 @@ export default {
                             name: 'Star'
                         }
                     ]
+                },
+                {
+                    image: '/akaliBloodmoon.jpg',
+                    headline: 'Healthy lifestyle',
+                    text: 'Health is one of the most important things. It should always stand first. Therefore, in combination with sports, ' +
+                        'I try to eat healthy and live a healthy lifestyle. Despite that I like to eat some fast food from time to time because everything is for people ' +
+                        'but in moderation. A healthy lifestyle also gives a lot of long-term benefits and advantages,' +
+                        ' that\'s why I try to live it as much as possible.',
+                    keys: [
+                        {
+                            head: '健康',
+                            name: 'Health'
+                        },
+                        {
+                            head: '規則性',
+                            name: 'Regularity'
+                        },
+                        {
+                            head: '食品',
+                            name: 'Food'
+                        }
+                    ]
                 }
             ]
         }
