@@ -6,7 +6,7 @@
             </h2>
             <ul class="facts-list">
                 <li v-for="(fact, index) in facts" :key="index">
-                    <TheFactsItem :text="fact.text" :index="index" :headline="fact.headline" :image="fact.image" />
+                    <TheFactsItem :text="fact.text" :index="index" :headline="fact.headline" :image="fact.image" :keys="fact.keys" />
                 </li>
             </ul>
             <TheSidebarLetters :active="active" />
@@ -29,7 +29,21 @@ export default {
                         'the years but the one that completely dragged me in was League of Legends. ' +
                         'This game was something that got me into competitive gaming and made me want to' +
                         ' become the best. And I did. In my prime, I was the best Akali player in the world ' +
-                        'and in the top 100 Challenger (the highest rank in-game with 200 best players in).'
+                        'and in the top 100 Challenger (the highest rank in-game with 200 best players in).',
+                    keys: [
+                        {
+                            head: 'ゲーム',
+                            name: 'Games'
+                        },
+                        {
+                            head: '競争力のある',
+                            name: 'Competitive'
+                        },
+                        {
+                            head: '挑戦者',
+                            name: 'Challenger'
+                        }
+                    ]
                 },
                 {
                     image: '/akaliBloodmoon2.jpg',
@@ -38,7 +52,21 @@ export default {
                         'I spent half of my life trying different disciplines.' +
                         ' As a kid, I dreamed about being a great football player and for quite a time I was serious about it.' +
                         ' I could spend my whole day training to become better. But after some years of training, ' +
-                        'I decided that it’s not the path I want to follow and started to spend more time on my computer playing video games and learning the basics of programming.'
+                        'I decided that it’s not the path I want to follow and started to spend more time on my computer playing video games and learning the basics of programming.',
+                    keys: [
+                        {
+                            head: '耐久性',
+                            name: 'Durability'
+                        },
+                        {
+                            head: 'サッカー',
+                            name: 'Football'
+                        },
+                        {
+                            head: '星',
+                            name: 'Star'
+                        }
+                    ]
                 }
             ]
         }

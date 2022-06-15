@@ -16,6 +16,12 @@
                 </p>
             </div>
         </div>
+        <div class="keys">
+            <div v-for="key in keys" :key="key.name">
+                <span>{{ key.head }}</span>
+                <span>{{ key.name }}</span>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -37,6 +43,10 @@ export default {
         },
         text: {
             type: String,
+            required: true
+        },
+        keys: {
+            type: Array,
             required: true
         }
     },
