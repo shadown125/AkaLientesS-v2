@@ -97,6 +97,11 @@
                 direction: column;
             }
             line-height: 1.2;
+            background: {
+                image: linear-gradient(to right, var(--color-primary), var(--color-blue));
+                clip: text;
+            }
+            -webkit-text-fill-color: transparent;
         }
         &::before {
             top: -100%;

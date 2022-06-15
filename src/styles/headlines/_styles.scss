@@ -26,6 +26,16 @@ h6 {
     }
 }
 
+.title {
+    > span {
+        background: {
+            image: linear-gradient(to right, var(--color-blue), var(--color-primary));
+            clip: text;
+        }
+        -webkit-text-fill-color: transparent;
+    }
+}
+
 .h1 {
     font: {
         size: clamp(#{susanoo.rem-calc(map-get(variables.$headline-min-sizes, "h1"))}, 6vw, #{susanoo.rem-calc(map-get(variables.$headline-max-sizes, "h1"))});
