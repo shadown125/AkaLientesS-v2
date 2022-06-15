@@ -135,12 +135,22 @@ $sus-breakpoints: (
     xlarge: rem-calc(1440),
 );
 
-@mixin media($breakpoint) {
+@mixin media($breakpoint, $mode: 'max') {
     @if map-has-key($sus-breakpoints, $breakpoint) {
         $breakpoint: map-get($sus-breakpoints, $breakpoint);
     }
 
-    @media only screen and (max-width: #{strip-unit($breakpoint) * 1em}) {
-        @content;
+    @if $mode == 'max' {
+        @media only screen and (max-width: #{strip-unit($breakpoint) * 1em}) {
+            @content;
+        }
+    }
+    @else if $mode == 'min' {
+        @media only screen and (min-width: #{strip-unit($breakpoint) * 1em}) {
+            @content;
+        }
+    }
+    @else {
+        @debug 'ERROR: There are only 'max' and 'min' values supported.';
     }
 }
