@@ -23,14 +23,14 @@
         }
         align-content: center;
         gap: susanoo.rem-calc(60) 0;
-        @include susanoo.media(medium) {
-            min: {
-                height: 50vh;
-            }
-        }
         @include susanoo.media(large) {
             min: {
-                height: 60vh;
+                height: 70vh;
+            }
+        }
+        @include susanoo.media(medium) {
+            min: {
+                height: 90vh;
             }
         }
     }
