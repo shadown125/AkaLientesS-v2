@@ -56,9 +56,6 @@
                     opacity: 1;
                 }
             }
-            .keys {
-                opacity: 1;
-            }
         }
     }
     .headline {
@@ -274,6 +271,9 @@
             margin: {
                 top: calc(var(--margin-top) / 2);
             }
+        }
+        &.is-active {
+            opacity: 1;
         }
         > div {
             span {

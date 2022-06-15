@@ -16,7 +16,7 @@
                 </p>
             </div>
         </div>
-        <div class="keys">
+        <div :class="['keys', activeKeys]" v-observe-visibility="{callback: isVisibleKeys}">
             <div v-for="key in keys" :key="key.name">
                 <span>{{ key.head }}</span>
                 <span>{{ key.name }}</span>
@@ -52,7 +52,8 @@ export default {
     },
     data () {
         return {
-            active: ''
+            active: '',
+            activeKeys: ''
         }
     },
     methods: {
@@ -61,6 +62,11 @@ export default {
                 setTimeout(() => {
                     this.active = 'is-active'
                 }, 750)
+            }
+        },
+        isVisibleKeys (visible: boolean) {
+            if (visible) {
+                this.activeKeys = 'is-active'
             }
         }
     }
