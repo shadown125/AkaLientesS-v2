@@ -253,7 +253,7 @@
         @include grid.grid-item-extend();
         --columns: 12;
         --column-start: 1;
-        --margin-top: #{susanoo.rem-calc(160)};
+        --margin-top: #{susanoo.rem-calc(120)};
 
         display: flex;
         justify-content: space-around;
@@ -261,7 +261,7 @@
             top: var(--margin-top);
         }
         opacity: 0;
-        transition: opacity 1s 1s linear;
+        transition: opacity 1s linear;
         @include susanoo.media(large) {
             justify-content: center;
             gap: susanoo.rem-calc(40);
