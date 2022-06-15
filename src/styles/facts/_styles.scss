@@ -5,6 +5,8 @@
 @use 'animations';
 
 .facts {
+    --lines-duration: 1s;
+
     position: relative;
     opacity: 0;
     transition: opacity .35s linear;
@@ -22,6 +24,9 @@
                 &::before {
                     transform: translateY(0);
                 }
+                &::after {
+                    height: 75%;
+                }
                 .headline {
                     @include mask.mask($delay: 1s);
                 }
@@ -30,6 +35,12 @@
                 transform: translateY(0);
             }
             .content {
+                &::before {
+                    height: 25%;
+                }
+                &::after {
+                    height: 20%;
+                }
                 .headline {
                     @include mask.mask();
                 }
@@ -73,14 +84,22 @@
                     --color-mask: var(--color-blue);
 
                     left: -30%;
+                    @include susanoo.media(large) {
+                        left: 0;
+                    }
                 }
             }
             .content {
                 --column-start: 2;
 
-                order: -1;
+                @include susanoo.media(large, min) {
+                    order: -1;
+                }
                 &::before {
                     left: 25%;
+                    @include susanoo.media(large) {
+                        left: 16.6%;
+                    }
                 }
             }
             .content {
@@ -98,21 +117,24 @@
     }
     .image {
         @include grid.grid-item-extend();
+        --column-large: 12;
         --columns: 5;
         --column-start: 1;
+        --column-start-large: 1;
 
         position: relative;
         height: susanoo.rem-calc(450);
         &::after {
             content: '';
             position: absolute;
-            height: 75%;
+            height: 0;
             width: var(--line-width);
             background: {
                 color: var(--color-primary);
             }
             top: 20%;
             right: -20%;
+            transition: height var(--lines-duration) linear;
         }
         &::before {
             content: '';
@@ -133,6 +155,10 @@
             position: absolute;
             bottom: 10%;
             right: -30%;
+            @include susanoo.media(large) {
+                left: 0;
+                right: unset;
+            }
             font: {
                 family: 'Noto Sans AK', sans-serif;
                 size: susanoo.rem-calc(80);
@@ -152,8 +178,10 @@
     }
     .content {
         @include grid.grid-item-extend();
+        --column-large: 12;
         --columns: 4;
         --column-start: 8;
+        --column-start-large: 1;
 
         position: relative;
         padding: susanoo.rem-calc(24);
@@ -170,12 +198,20 @@
         &::before {
             top: 95%;
             left: calc(25% - 2px);
-            height: 25%;
+            height: 0;
+            transition: height var(--lines-duration) linear;
+            @include susanoo.media(large) {
+                left: 16.6%;
+            }
         }
         &::after {
             top: 100%;
-            height: 20%;
+            height: 0;
             right: 25%;
+            transition: height var(--lines-duration) 0.3s linear;
+            @include susanoo.media(large) {
+                right: 16.6%;
+            }
         }
         .description {
             position: relative;
