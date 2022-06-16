@@ -9,15 +9,20 @@
     --core-delay: 0.9s;
 
     position: fixed;
-    transition: opacity 0.5s linear;
+    bottom: 100%;
+    transition: opacity 0.5s linear, bottom 0s var(--core-delay) linear;
     opacity: 0;
     @include susanoo.media(medium) {
         opacity: 1;
         z-index: 2;
     }
-    &.is-active {
+    &.is-visible {
         opacity: 1;
         z-index: 2;
+    }
+    &.is-active {
+        bottom: 0;
+        transition: bottom 0s linear;
     }
     .menu {
         @include grid.grid-item-extend();

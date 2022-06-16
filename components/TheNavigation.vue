@@ -16,7 +16,7 @@
                     <span>Contact me</span>
                 </button>
             </nav>
-            <nav :class="['section', 'absolute-grid', 'burger-navigation', !windowTop ? '' : 'is-active']">
+            <nav :class="['section', 'absolute-grid', 'burger-navigation', !windowTop ? '' : 'is-visible', menuState]">
                 <button :class="['menu', menuState]" @click="openAndCloseMenu">
                     <span />
                     <span />
