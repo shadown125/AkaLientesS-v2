@@ -33,14 +33,16 @@
                         />
                     </svg>
                 </button>
-                <div :class="['content', menuState]">
-                    <ul>
-                        <li v-for="link in links" :key="link.id" @click="closeMenu">
-                            <NuxtLink :to="{ path: '/', hash: link.route }">
-                                <span :data-text="link.name">{{ link.name }}</span>
-                            </NuxtLink>
-                        </li>
-                    </ul>
+                <div :class="['container', menuState]">
+                    <div class="content">
+                        <ul>
+                            <li v-for="link in links" :key="link.id" @click="closeMenu">
+                                <NuxtLink :to="{ path: '/', hash: link.route }">
+                                    <span :data-text="link.name">{{ link.name }}</span>
+                                </NuxtLink>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>

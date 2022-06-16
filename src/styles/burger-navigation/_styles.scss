@@ -4,6 +4,10 @@
 @use '../links/mixins' as links;
 
 .burger-navigation {
+    --content-duration: 0.25s;
+    --content-delay: 0.125s;
+    --core-delay: 0.9s;
+
     position: fixed;
     transition: opacity 0.5s linear;
     opacity: 0;
@@ -36,7 +40,7 @@
             left: auto;
         }
         cursor: pointer;
-        z-index: 2;
+        z-index: 5;
         &.is-active {
             &:hover {
                 > span {
@@ -148,22 +152,67 @@
             transition: stroke-dashoffset 1.5s ease-in-out, transform 1.5s ease-in-out;
         }
     }
-    .content {
+    .container {
         position: fixed;
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100vw;
         height: 100%;
-        left: 200%;
-        transform: translateX(-50%);
-        background: {
-            image: linear-gradient(to top, #16151c, #09090b);
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 200%;
+            transform: translateX(-50%);
         }
-        transition: left 1s ease-in-out;
+        &::before {
+            background: {
+                color: var(--color-primary);
+            }
+            transition: left 1s 0.25s ease-in-out;
+            z-index: 2;
+        }
+        &::after {
+            background: {
+                image: linear-gradient(to top, #16151c, #09090b);
+            }
+            transition: left 1s ease-in-out;
+            z-index: 3;
+        }
         &.is-active {
-            left: 50%;
+            &::before,
+            &::after {
+                left: 50%;
+            }
+            &::before {
+                transition: left 1s ease-in-out;
+            }
+            &::after {
+                transition: left 0.75s 0.25s ease-in-out;
+            }
+            .content {
+                opacity: 1;
+                transition: opacity 0s 1s linear;
+            }
+            a {
+                > span {
+                    &::before,
+                    &::after {
+                        opacity: 1;
+                        top: 0;
+                        transition: color var(--content-duration) var(--content-delay) linear, transform var(--content-duration) var(--content-delay) linear, top 0.3s 1s linear, opacity 0s var(--core-delay) linear;
+                    }
+                }
+            }
         }
+    }
+    .content {
+        opacity: 0;
+        transition: opacity 0s 0.3s linear;
+        z-index: 4;
         ul {
             @include lists.reset-list();
         }
@@ -205,31 +254,32 @@
                 transition: left 0.25s linear;
             }
             > span {
-                --duration: 0.25s;
-                --delay: 0.125s;
-
                 color: transparent;
                 position: relative;
+                &::before,
+                &::after {
+                    transition: top 0.3s 0.1s linear, opacity 0s 0.4s linear;
+                }
                 &::before {
                     content: attr(data-text);
                     position: absolute;
-                    top: 0;
+                    top: susanoo.rem-calc(-100);
                     left: 0;
                     width: 100%;
                     height: 100%;
                     color: white;
-                    transition: color var(--duration) var(--delay) linear, transform var(--duration) var(--delay) linear;
+                    opacity: 0;
                     clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
                 }
                 &::after {
                     content: attr(data-text);
                     position: absolute;
-                    top: 0;
+                    top: susanoo.rem-calc(-100);
                     left: 0;
                     width: 100%;
                     height: 100%;
                     color: white;
-                    transition: color var(--duration) var(--delay) linear, transform var(--duration) var(--delay) linear;
+                    opacity: 0;
                     clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
                 }
             }
