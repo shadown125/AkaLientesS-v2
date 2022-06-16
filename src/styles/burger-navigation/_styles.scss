@@ -1,0 +1,238 @@
+@use '../susanoo';
+@use '../grid/mixins' as grid;
+@use '../lists/mixins' as lists;
+@use '../links/mixins' as links;
+
+.burger-navigation {
+    position: fixed;
+    transition: opacity 0.5s linear;
+    opacity: 0;
+    @include susanoo.media(medium) {
+        opacity: 1;
+        z-index: 2;
+    }
+    &.is-active {
+        opacity: 1;
+        z-index: 2;
+    }
+    .menu {
+        @include grid.grid-item-extend();
+        --circle: #{susanoo.rem-calc(50)};
+        --column-start: 12;
+
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--circle);
+        height: var(--circle);
+        background: {
+            color: var(--color-primary);
+        }
+        border: {
+            radius: susanoo.rem-calc(40);
+        }
+        margin: {
+            left: auto;
+        }
+        cursor: pointer;
+        z-index: 2;
+        &.is-active {
+            &:hover {
+                > span {
+                    &:nth-child(1) {
+                        left: 25%;
+                        bottom: 50%;
+                        width: 55%;
+                        transform: rotate(-45deg);
+                    }
+                    &:nth-child(2) {
+                        top: 50%;
+                        left: 25%;
+                        width: 55%;
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+            > span {
+                &:nth-child(1) {
+                    top: 50%;
+                    bottom: unset;
+                    left: 25%;
+                    width: 55%;
+                    transform: rotate(45deg);
+                }
+                &:nth-child(2) {
+                    left: 25%;
+                    bottom: 50%;
+                    width: 55%;
+                    transform: rotate(-45deg);
+                }
+                &:nth-child(3) {
+                    opacity: 0;
+                }
+            }
+        }
+        &:hover {
+            .path {
+                stroke: #3f01e4;
+                stroke-dashoffset: 0;
+                transform: rotate(450deg);
+                transition: stroke-dashoffset 1.5s ease-in-out, transform 1.5s ease-in-out;
+            }
+            > span {
+                background: {
+                    color: #22fcb0;
+                }
+                &:nth-child(1) {
+                    top: 48%;
+                    left: 40%;
+                    transform: rotate(90deg);
+                }
+                &:nth-child(2) {
+                    top: 33%;
+                    left: 23%;
+                    width: 51%;
+                    transform: rotate(325deg);
+                }
+                &:nth-child(3) {
+                    top: 62%;
+                    left: 23%;
+                    width: 50%;
+                    transform: rotate(35deg);
+                }
+            }
+        }
+        > span {
+            position: absolute;
+            display: block;
+            height: 3px;
+            background: {
+                color: white;
+            }
+            transition: all 0.4s cubic-bezier(.694,.048,.335,1);
+            &:nth-child(1) {
+                top: 33%;
+                left: 20%;
+                right: 0;
+                width: 60%;
+            }
+            &:nth-child(2) {
+                top: 48%;
+                left: 35%;
+                right: 0;
+                width: 45%;
+            }
+            &:nth-child(3) {
+                top: 63%;
+                left: 50%;
+                right: 0;
+                width: 30%;
+            }
+        }
+        .spinner {
+            position: absolute;
+            &.is-active {
+                .path {
+                    stroke-dashoffset: 0;
+                    transform: rotate(450deg);
+                }
+            }
+        }
+        .path {
+            stroke: #3f00e6;
+            stroke-dasharray: 200;
+            stroke-dashoffset: 305%;
+            transform-origin: center;
+            transform: rotate(0deg);
+            transition: stroke-dashoffset 1.5s ease-in-out, transform 1.5s ease-in-out;
+        }
+    }
+    .content {
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100%;
+        left: 200%;
+        transform: translateX(-50%);
+        background: {
+            image: linear-gradient(to top, #16151c, #09090b);
+        }
+        transition: left 1s ease-in-out;
+        &.is-active {
+            left: 50%;
+        }
+        ul {
+            @include lists.reset-list();
+        }
+        li {
+            position: relative;
+        }
+        a {
+            @include links.reset();
+            font: {
+                size: clamp(#{susanoo.rem-calc(60)}, 2vw, #{susanoo.rem-calc(80)});
+            }
+            overflow: hidden;
+            &:hover {
+                &::before {
+                    left: 100%;
+                }
+                > span {
+                    &::before {
+                        color: var(--color-primary);
+                        transform: translate(#{susanoo.rem-calc(10)}, -3px);
+                    }
+                    &::after {
+                        color: var(--color-primary);
+                        transform: translate(#{susanoo.rem-calc(-10)}, 3px);
+                    }
+                }
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: -100%;
+                width: 100%;
+                height: 2px;
+                transform: translateY(-50%);
+                background: {
+                    color: var(--color-blue);
+                }
+                transition: left 0.25s linear;
+            }
+            > span {
+                --duration: 0.25s;
+                --delay: 0.125s;
+
+                color: transparent;
+                position: relative;
+                &::before {
+                    content: attr(data-text);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    color: white;
+                    transition: color var(--duration) var(--delay) linear, transform var(--duration) var(--delay) linear;
+                    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+                }
+                &::after {
+                    content: attr(data-text);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    color: white;
+                    transition: color var(--duration) var(--delay) linear, transform var(--duration) var(--delay) linear;
+                    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+                }
+            }
+        }
+    }
+}

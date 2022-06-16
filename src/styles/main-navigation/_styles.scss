@@ -19,7 +19,7 @@
     min: {
         height: 20vh;
     }
-    @include susanoo.media(small) {
+    @include susanoo.media(medium) {
         display: none;
     }
     &.is-loaded {

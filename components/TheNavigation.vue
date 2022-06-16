@@ -1,7 +1,7 @@
 <template>
     <header class="section">
         <div class="wrapper">
-            <nav v-observe-visibility="{callback: isVisible, intersection: {threshold: 1}}" :class="['main-navigation', active, loaded]">
+            <nav v-observe-visibility="{callback: isVisible, intersection: {threshold: 1}}" :class="['main-navigation', active, windowTop ? '' : loaded]">
                 <a href="/" class="logo">
                     <nuxt-img src="/brandLogo.png" width="80" height="80" alt-text="brand-logo" />
                 </a>
@@ -16,6 +16,33 @@
                     <span>Contact me</span>
                 </button>
             </nav>
+            <nav :class="['section', 'absolute-grid', 'burger-navigation', !windowTop ? '' : 'is-active']">
+                <button :class="['menu', menuState]" @click="openAndCloseMenu">
+                    <span />
+                    <span />
+                    <span />
+                    <svg :class="['spinner', menuState]" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                        <circle
+                            class="path"
+                            fill="none"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                            cx="33"
+                            cy="33"
+                            r="31.3"
+                        />
+                    </svg>
+                </button>
+                <div :class="['content', menuState]">
+                    <ul>
+                        <li v-for="link in links" :key="link.id" @click="closeMenu">
+                            <NuxtLink :to="{ path: '/', hash: link.route }">
+                                <span :data-text="link.name">{{ link.name }}</span>
+                            </NuxtLink>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     </header>
 </template>
@@ -29,6 +56,8 @@ export default {
         return {
             active: '',
             loaded: '',
+            windowTop: 0,
+            menuState: '',
             links: [
                 {
                     id: '1',
@@ -48,6 +77,9 @@ export default {
             ]
         }
     },
+    mounted () {
+        window.addEventListener('scroll', this.onScroll)
+    },
     methods: {
         isVisible (visible: boolean) {
             if (visible) {
@@ -55,10 +87,21 @@ export default {
                     this.active = 'is-active'
                     this.loaded = 'is-loaded'
                 }, 1000)
+            }
+        },
+        onScroll () {
+            this.windowTop = window.top.scrollY
+        },
+        openAndCloseMenu () {
+            if (this.menuState) {
+                this.menuState = ''
 
                 return
             }
-            this.loaded = ''
+            this.menuState = 'is-active'
+        },
+        closeMenu () {
+            this.menuState = ''
         }
     }
 }
