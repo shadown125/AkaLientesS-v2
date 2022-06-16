@@ -197,7 +197,8 @@
             }
             .content {
                 opacity: 1;
-                transition: opacity 0s 1s linear;
+                transform: translateX(0);
+                transition: transform 0s 0.9s, opacity 0s 1s linear;
             }
             a {
                 > span {
@@ -213,8 +214,9 @@
     }
     .content {
         opacity: 0;
-        transition: opacity 0s 0.3s linear;
         z-index: 4;
+        transform: translateX(1000%);
+        transition: transform 0s 0.3s, opacity 0s 0.3s linear;
         ul {
             @include lists.reset-list();
         }
