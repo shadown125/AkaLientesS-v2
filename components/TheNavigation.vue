@@ -92,7 +92,6 @@ export default {
             }
         },
         onScroll () {
-            console.log(1)
             this.windowTop = window.top.scrollY
         },
         openAndCloseMenu () {
