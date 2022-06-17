@@ -13,6 +13,7 @@
         direction: column;
     }
     gap: susanoo.rem-calc(32);
+    z-index: 1;
     &::before {
         content: '';
         position: absolute;
