@@ -80,7 +80,7 @@ export default {
         }
     },
     mounted () {
-        window.addEventListener('scroll', this.onScroll)
+        window.addEventListener('scroll', this.debounce(this.onScroll, 10))
     },
     methods: {
         isVisible (visible: boolean) {
@@ -92,6 +92,7 @@ export default {
             }
         },
         onScroll () {
+            console.log(1)
             this.windowTop = window.top.scrollY
         },
         openAndCloseMenu () {
@@ -104,6 +105,16 @@ export default {
         },
         closeMenu () {
             this.menuState = ''
+        },
+        debounce (func, timeout) {
+            let timer
+
+            return (...args) => {
+                clearTimeout(timer)
+                timer = setTimeout(() => {
+                    func.apply(this, args)
+                }, timeout)
+            }
         }
     }
 }
