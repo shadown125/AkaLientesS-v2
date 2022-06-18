@@ -1,5 +1,5 @@
 <template>
-    <section id="skills" class="skills">
+    <section id="skills" :class="['skills', active]">
         <div class="wrapper">
             <h2 class="title h2">
                 <span>Skills</span>

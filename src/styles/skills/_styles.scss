@@ -7,11 +7,18 @@
 .skills {
     --exp-gap: #{susanoo.rem-calc(20)};
 
+    &.is-active {
+        .title {
+            @include masks.mask();
+        }
+    }
     .title {
-        @include masks.mask();
         position: relative;
         margin: {
             bottom: susanoo.rem-calc(60);
+        }
+        > span {
+            opacity: 0;
         }
     }
     .skills-list {
