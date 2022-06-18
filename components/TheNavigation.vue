@@ -73,6 +73,11 @@ export default {
                 },
                 {
                     id: '3',
+                    route: '#skills',
+                    name: 'SKILLS'
+                },
+                {
+                    id: '4',
                     route: '#my-work',
                     name: 'MY WORK'
                 }
