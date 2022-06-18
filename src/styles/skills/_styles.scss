@@ -1,0 +1,245 @@
+@use '../susanoo';
+@use '../grid/mixins' as grid;
+@use '../lists/mixins' as lists;
+@use '../masks/mixins' as masks;
+@use '../icons/variables' as icons;
+
+.skills {
+    --exp-gap: #{susanoo.rem-calc(20)};
+
+    .title {
+        @include masks.mask();
+        position: relative;
+        margin: {
+            bottom: susanoo.rem-calc(60);
+        }
+    }
+    .skills-list {
+        @include lists.reset-list();
+        display: flex;
+        flex: {
+            direction: column;
+        }
+        gap: susanoo.rem-calc(100) 0;
+    }
+    .content {
+        &.is-active {
+            ul {
+                --color-mask: #00bafb;
+
+                @include masks.mask($delay: 1s);
+                opacity: 1;
+            }
+            .name {
+                opacity: 1;
+            }
+            .power-meter {
+                opacity: 1;
+            }
+            .keys {
+                opacity: 1;
+            }
+        }
+        ul {
+            @include lists.reset-list();
+            position: relative;
+            display: grid;
+            border: {
+                color: #00bafb;
+                width: 2px;
+                style: solid;
+            }
+            padding: susanoo.rem-calc(20);
+            grid: {
+                template: {
+                    columns: repeat(auto-fit, minmax(min(#{susanoo.rem-calc(50)}, 100%), 1fr));
+                }
+                gap: var(--exp-gap);
+            }
+            background: {
+                color: #040425;
+            }
+            opacity: 0;
+            transition: opacity 0.3s 1s linear;
+        }
+        .head {
+            @include grid.grid();
+            justify-content: space-between;
+            align-items: center;
+            margin: {
+                bottom: susanoo.rem-calc(20);
+            }
+        }
+        .keys {
+            @include grid.grid-item-extend();
+            --column-start: 3;
+
+            display: grid;
+            grid: {
+                template: {
+                    columns: repeat(auto-fit, minmax(min(#{susanoo.rem-calc(60)}, 100%), 1fr))
+                }
+                gap: susanoo.rem-calc(40);
+            }
+            opacity: 0;
+            transition: opacity 0.4s 0.3s linear;
+            @include susanoo.media(medium) {
+                --column-start: 4;
+            }
+            > div {
+                display: flex;
+                justify-content: center;
+                flex: {
+                    direction: column;
+                }
+                > span {
+                    display: block;
+                    word-break: break-word;
+                    &:first-child {
+                        color: #00bafb;
+                    }
+                    &:last-child {
+                        font: {
+                            size: clamp(#{susanoo.rem-calc(24)}, 4vw, #{susanoo.rem-calc(40)})
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .power-meter {
+        position: relative;
+        width: 100%;
+        height: susanoo.rem-calc(20);
+        border: {
+            radius: susanoo.rem-calc(30);
+            color: #e80105;
+            width: 2px;
+            style: solid;
+        }
+        background: {
+            color: #e80105;
+        }
+        box-shadow: 0 0 #{susanoo.rem-calc(30)} #{susanoo.rem-calc(8)} #e80105;
+        transform: skew(-25deg);
+        opacity: 0;
+        transition: opacity 0.3s var(--power-meter-delay) linear;
+        &.is-active {
+            background: {
+                color: #00bafb;
+            }
+            border: {
+                color: #00bafb;
+            }
+            box-shadow: 0 0 #{susanoo.rem-calc(30)} #{susanoo.rem-calc(8)} #00bafb;
+            &::before,
+            &::after {
+                background: {
+                    color: #00bafb;
+                }
+            }
+        }
+        &::before,
+        &::after {
+            content: '';
+            position :absolute;
+            height: 2px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: calc(var(--exp-gap) + 3px);
+            background: {
+                color: #e80105;
+            }
+        }
+        &::before {
+            left: calc((var(--exp-gap) + 3px) * -1);
+        }
+        &::after {
+            right: calc((var(--exp-gap) + 3px) * -1);
+        }
+        &:first-child {
+            &::before {
+                content: unset;
+            }
+        }
+        &:last-child {
+            &::after {
+                content: unset;
+            }
+        }
+    }
+    .name {
+        --quader: #{susanoo.rem-calc(120)};
+
+        position: relative;
+        width: var(--quader);
+        height: var(--quader);
+        border: {
+            width: 2px;
+            color: #00bafb;
+            style: solid;
+        }
+        transform: rotate(45deg);
+        margin: {
+            bottom: susanoo.rem-calc(6);
+            left: susanoo.rem-calc(20);
+        }
+        opacity: 0;
+        transition: opacity 0.3s 0.5s linear;
+    }
+    .icon {
+        &::before,
+        &::after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+        &::before {
+            @include susanoo.icon(null, true);
+            font: {
+                size: susanoo.rem-calc(50);
+            }
+        }
+        &::after {
+            content: '';
+            box-shadow: 0 0 #{susanoo.rem-calc(70)} #{susanoo.rem-calc(30)} var(--shadow-color);
+        }
+        &--html {
+            &::before {
+                @include susanoo.icon(icons.$icon-html, false);
+                color: #e34f26;
+            }
+            &::after {
+                --shadow-color: #e34f26;
+            }
+        }
+        &--css {
+            &::before {
+                @include susanoo.icon(icons.$icon-css, false);
+                color: #66d3fa;
+            }
+            &::after {
+                --shadow-color: #66d3fa;
+            }
+        }
+        &--js {
+            &::before {
+                @include susanoo.icon(icons.$icon-js, false);
+                color: #393;
+            }
+            &::after {
+                --shadow-color: #393;
+            }
+        }
+        &--dart {
+            &::before {
+                @include susanoo.icon(icons.$icon-dart, false);
+                color: #0175c2;
+            }
+            &::after {
+                --shadow-color: #0175c2;
+            }
+        }
+    }
+}

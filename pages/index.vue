@@ -9,6 +9,7 @@
         <TheNavigation />
         <TheStaging />
         <TheFacts />
+        <TheSkills />
         <TheFloatingLines />
     </div>
 </template>
