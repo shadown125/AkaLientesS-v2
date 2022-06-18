@@ -9,6 +9,7 @@
                     <TheSkillsItem :name="skill.name" :points="skill.points" :keys="skill.keys" />
                 </li>
             </ul>
+            <TheSidebarLetters :active="active" />
         </div>
     </section>
 </template>
