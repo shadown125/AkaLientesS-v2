@@ -84,7 +84,7 @@
         }
         &:hover {
             .path {
-                stroke: #3f01e4;
+                stroke: var(--color-light-blue);
                 stroke-dashoffset: 0;
                 transform: rotate(450deg);
                 transition: stroke-dashoffset 1.5s ease-in-out, transform 1.5s ease-in-out;
@@ -149,7 +149,7 @@
             }
         }
         .path {
-            stroke: #3f00e6;
+            stroke: var(--color-light-blue);
             stroke-dasharray: 200;
             stroke-dashoffset: 305%;
             transform-origin: center;
