@@ -32,7 +32,7 @@
     .content {
         &.is-active {
             ul {
-                --color-mask: #00bafb;
+                --color-mask: var(--color-light-blue);
 
                 @include masks.mask($delay: 1s);
                 opacity: 1;
@@ -52,7 +52,7 @@
             position: relative;
             display: grid;
             border: {
-                color: #00bafb;
+                color: var(--color-light-blue);
                 width: 2px;
                 style: solid;
             }
@@ -103,7 +103,7 @@
                     display: block;
                     word-break: break-word;
                     &:first-child {
-                        color: #00bafb;
+                        color: var(--color-light-blue);
                     }
                     &:last-child {
                         font: {
@@ -133,16 +133,16 @@
         transition: opacity 0.3s var(--power-meter-delay) linear;
         &.is-active {
             background: {
-                color: #00bafb;
+                color: var(--color-light-blue);
             }
             border: {
-                color: #00bafb;
+                color: var(--color-light-blue);
             }
-            box-shadow: 0 0 #{susanoo.rem-calc(30)} #{susanoo.rem-calc(8)} #00bafb;
+            box-shadow: 0 0 #{susanoo.rem-calc(30)} #{susanoo.rem-calc(8)} var(--color-light-blue);
             &::before,
             &::after {
                 background: {
-                    color: #00bafb;
+                    color: var(--color-light-blue);
                 }
             }
         }
@@ -183,7 +183,7 @@
         height: var(--quader);
         border: {
             width: 2px;
-            color: #00bafb;
+            color: var(--color-light-blue);
             style: solid;
         }
         transform: rotate(45deg);
