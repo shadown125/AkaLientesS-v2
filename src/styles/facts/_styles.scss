@@ -82,6 +82,9 @@
                 bottom: calc(var(--margin-bottom) / 2);
             }
         }
+        &:last-child {
+            --margin-bottom: unset;
+        }
         &:nth-child(even) {
             .image {
                 --column-start: 8;
