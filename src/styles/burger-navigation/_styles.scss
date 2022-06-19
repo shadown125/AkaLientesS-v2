@@ -2,6 +2,7 @@
 @use '../grid/mixins' as grid;
 @use '../lists/mixins' as lists;
 @use '../links/mixins' as links;
+@use 'animations';
 
 .burger-navigation {
     --content-duration: 0.25s;
@@ -46,6 +47,27 @@
         }
         cursor: pointer;
         z-index: 5;
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: susanoo.rem-calc(-15);
+            right: susanoo.rem-calc(-15);
+            bottom: susanoo.rem-calc(-15);
+            left: susanoo.rem-calc(-15);
+            border: {
+                width: 1px;
+                style: solid;
+                color: var(--color-light-blue);
+                radius: 50%;
+            }
+            animation: pulsing 20s linear infinite;
+        }
+        &::after {
+            animation: {
+                delay: 0.35s;
+            }
+        }
         &.is-active {
             &:hover {
                 > span {
