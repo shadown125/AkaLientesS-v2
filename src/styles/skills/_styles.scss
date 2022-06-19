@@ -9,7 +9,9 @@
 
     &.is-active {
         .title {
-            @include masks.mask();
+            &--skills {
+                @include masks.mask();
+            }
         }
     }
     .title {
@@ -133,16 +135,16 @@
         transition: opacity 0.3s var(--power-meter-delay) linear;
         &.is-active {
             background: {
-                color: var(--color-light-blue);
+                color: var(--color-active, var(--color-light-blue));
             }
             border: {
-                color: var(--color-light-blue);
+                color: var(--color-active, var(--color-light-blue));
             }
-            box-shadow: 0 0 #{susanoo.rem-calc(30)} #{susanoo.rem-calc(8)} var(--color-light-blue);
+            box-shadow: 0 0 #{susanoo.rem-calc(30)} #{susanoo.rem-calc(8)} var(--color-active, var(--color-light-blue));
             &::before,
             &::after {
                 background: {
-                    color: var(--color-light-blue);
+                    color: var(--color-active, var(--color-light-blue));
                 }
             }
         }

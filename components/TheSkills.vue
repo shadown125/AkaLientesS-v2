@@ -1,7 +1,7 @@
 <template>
     <section id="skills" :class="['skills', active]">
         <div class="wrapper">
-            <h2 class="title h2">
+            <h2 class="title title--skills h2">
                 <span>Skills</span>
             </h2>
             <ul class="skills-list">
@@ -9,17 +9,32 @@
                     <TheSkillsItem :name="skill.name" :points="skill.points" :keys="skill.keys" />
                 </li>
             </ul>
+            <div :class="['frameworks', activeFrameworks]" v-observe-visibility="isVisibleFrameworks">
+                <h3 class="title title--frameworks h2">
+                    <span>Frameworks and Libraries</span>
+                </h3>
+                <ul>
+                    <li v-for="(item, index) in frameworks" :key="item.name">
+                        <TheSkillsFrameworksItem :name="item.name" :points="item.points" :index="index" />
+                    </li>
+                </ul>
+            </div>
             <TheSidebarLetters :active="active" />
         </div>
     </section>
 </template>
 
 <script lang="ts">
+import TheSkillsFrameworksItem from './Skills/TheSkillsFrameworksItem.vue'
+import TheSkillsItem from './Skills/TheSkillsItem.vue'
+
 export default {
     name: 'TheSkills',
+    components: { TheSkillsItem, TheSkillsFrameworksItem },
     data () {
         return {
             active: '',
+            activeFrameworks: '',
             skills: [
                 {
                     name: 'html',
@@ -93,6 +108,24 @@ export default {
                         }
                     ]
                 }
+            ],
+            frameworks: [
+                {
+                    name: 'React',
+                    points: 3
+                },
+                {
+                    name: 'Next',
+                    points: 3
+                },
+                {
+                    name: 'Vue',
+                    points: 2
+                },
+                {
+                    name: 'Flutter',
+                    points: 2
+                }
             ]
         }
     },
@@ -102,6 +135,11 @@ export default {
                 setTimeout(() => {
                     this.active = 'is-active'
                 }, this.animationDelay)
+            }
+        },
+        isVisibleFrameworks (visible: boolean) {
+            if (visible) {
+                this.activeFrameworks = 'is-active'
             }
         }
     }

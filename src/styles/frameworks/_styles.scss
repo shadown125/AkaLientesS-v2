@@ -1,0 +1,172 @@
+@use '../susanoo';
+@use '../lists/mixins' as lists;
+@use '../icons/variables' as icons;
+@use '../masks/mixins' as masks;
+
+.frameworks {
+    margin: {
+        top: susanoo.rem-calc(120);
+    }
+    &.is-active {
+        .title {
+            &--frameworks {
+                @include masks.mask();
+            }
+        }
+        .card {
+            opacity: 1;
+        }
+    }
+    ul {
+        @include lists.reset-list();
+        display: grid;
+        grid: {
+            template: {
+                columns: repeat(auto-fill, minmax(min(#{susanoo.rem-calc(280)}, 100%), 1fr));
+            }
+            gap: susanoo.rem-calc(50);
+        }
+    }
+    .card {
+        position: relative;
+        background: {
+            image: radial-gradient(#{var(--gradient-1)}, #{var(--gradient-2)});
+            color: var(--background-color, #040425);
+        }
+        min: {
+            height: susanoo.rem-calc(300);
+        }
+        border: {
+            radius: susanoo.rem-calc(6);
+        }
+        opacity: 0;
+        box-shadow: 0 0 #{susanoo.rem-calc(30)} #{susanoo.rem-calc(8)} var(--box-shadow);
+        overflow: hidden;
+        transition: opacity 0.75s var(--card-delay) linear;
+        &::before {
+            @include susanoo.icon(null, true);
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            font: {
+                size: susanoo.rem-calc(120);
+            }
+            color: var(--icon-color);
+            transform: translate(-50%, -30%);
+        }
+        &:hover {
+            .content {
+                height: 50%;
+                left: 0;
+                width: 100%;
+                background: {
+                    color: #04042580;
+                }
+            }
+            &.next,
+            &.vue,
+            &.flutter {
+                --headline-color: white;
+            }
+            ul {
+                opacity: 1;
+            }
+            li {
+                opacity: 1;
+                transition: opacity 0.3s var(--power-meter-delay) linear;
+            }
+        }
+        &.react {
+            --box-shadow: var(--color-light-blue);
+            --gradient-1: #1fe4f520;
+            --gradient-2: #3fbafe;
+            --background-color: #040425;
+            &::before {
+                @include susanoo.icon(icons.$icon-react, false);
+                --icon-color: var(--color-light-blue);
+            }
+        }
+        &.next {
+            --box-shadow: #484848;
+            --gradient-1: #33333360;
+            --gradient-2: #02020240;
+            --background-color: white;
+            --headline-color: #333333;
+            &::before {
+                @include susanoo.icon(icons.$icon-next, false);
+                --icon-color: #000000;
+            }
+            .power-meter {
+                --color-active: #000000;
+            }
+        }
+        &.vue {
+            --box-shadow: #086a40;
+            --gradient-1: #086a40;
+            --gradient-2: #41b784;
+            --headline-color: #33495d;
+            &::before {
+                @include susanoo.icon(icons.$icon-vue, false);
+                --icon-color: #41b784;
+            }
+            .power-meter {
+                --color-active: #41b784;
+            }
+        }
+        &.flutter {
+            --box-shadow: #43caf5;
+            --gradient-1: #43caf5;
+            --gradient-2: #64b1ef;
+            --background-color: white;
+            --headline-color: #0d459c;
+            &::before {
+                @include susanoo.icon(icons.$icon-flutter, false);
+                --icon-color: #0d459c;
+            }
+            .power-meter {
+                --color-active: #64b1ef;
+            }
+        }
+        .headline {
+            font: {
+                family: "Alex Brush", sans-serif;
+            }
+            color: var(--headline-color, inherit);
+            margin: {
+                bottom: unset;
+            }
+            transition: color 0.3s linear;
+        }
+    }
+    .content {
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        width: 80%;
+        height: susanoo.rem-calc(80);
+        text: {
+            align: center;
+        }
+        border-top-right-radius: susanoo.rem-calc(6);
+        border-top-left-radius: susanoo.rem-calc(6);
+        background: {
+            color: #04042500;
+        }
+        transition: height 0.5s, left 0.5s, width 0.5s, background-color 0.5s;
+        ul {
+            grid: {
+                template: {
+                    columns: repeat(auto-fit, minmax(min(#{susanoo.rem-calc(30)}, 100%), 1fr));
+                }
+            }
+            border: unset;
+            background: {
+                color: unset;
+            }
+            transition: opacity 0.3s;
+        }
+        li {
+            transition: opacity 0s linear;
+        }
+    }
+}
