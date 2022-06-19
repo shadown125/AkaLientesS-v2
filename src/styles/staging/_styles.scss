@@ -9,6 +9,7 @@
     position: relative;
     padding: {
         top: 0;
+        bottom: calc(var(--padding) / var(--padding-multiply));
     }
     opacity: 0;
     transition: opacity 0.75s linear;
