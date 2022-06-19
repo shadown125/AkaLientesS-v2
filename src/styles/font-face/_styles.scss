@@ -45,3 +45,12 @@
     url("/noto-sans-jp-bold.woff2") format("woff2");
     font-display: swap;
 }
+
+@font-face {
+    font-family: "Alex Brush";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Alex Brush Regular"), local("alex-brush-regular"),
+    url("/alex-brush-regular.woff2") format("woff2");
+    font-display: swap;
+}
