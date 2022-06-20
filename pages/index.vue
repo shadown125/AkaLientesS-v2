@@ -1,7 +1,6 @@
 <template>
     <div class="app">
         <Particles
-            v-if="$mq === 'large'"
             id="tsparticles"
             :class="['particle', active]"
             :options="options"
