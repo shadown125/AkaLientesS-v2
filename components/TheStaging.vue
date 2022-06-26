@@ -2,13 +2,7 @@
     <section :class="['staging', active]" v-observe-visibility="isVisible">
         <div class="wrapper">
             <div class="grid">
-                <ul :class="['social-links', active]">
-                    <li v-for="link in links" :key="link.name">
-                        <a :href="link.link" rel="external noopener" target="_blank" :class="['icon', link.name]">
-                            <span>{{ link.name }}</span>
-                        </a>
-                    </li>
-                </ul>
+                <TheSocialLinks :active="active" />
                 <div class="content">
                     <h1 class="headline h1">
                         <TheTypewriter :words="['Aka']" tag="span" :speed="250" :delay="2500" />
@@ -37,22 +31,10 @@ import baffle from 'baffle'
 
 export default {
     name: 'TheStaging',
-    data (): {active: string, animationDelay: Number, links: {link: string, name: string}[]} {
+    data (): {active: string, animationDelay: Number} {
         return {
             active: '',
-            animationDelay: 2000,
-            links: [{
-                link: 'https://github.com/shadown125',
-                name: 'github'
-            },
-            {
-                link: 'https://twitter.com/DawidOleksiuk',
-                name: 'twitter'
-            },
-            {
-                link: 'https://www.linkedin.com/in/dawid-ol-2478311a4/',
-                name: 'linkedin'
-            }]
+            animationDelay: 2000
         }
     },
     mounted () {
