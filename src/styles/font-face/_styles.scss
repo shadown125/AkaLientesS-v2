@@ -54,3 +54,13 @@
     url("/alex-brush-regular.woff2") format("woff2");
     font-display: swap;
 }
+
+@font-face {
+    font-family: "Tapestry";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Tapestry Regular"), local("tapestry-regular"),
+    url("/tapestry-regular.woff2") format("woff2");
+    font-display: swap;
+}
+
