@@ -54,6 +54,10 @@
         }
     }
     .author {
+        font: {
+            size: susanoo.rem-calc(30);
+            family: "Alex Brush", sans-serif;
+        }
         opacity: 0;
         transition: opacity 0.4s 1s linear;
     }
