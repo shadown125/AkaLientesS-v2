@@ -36,6 +36,11 @@
             margin: {
                 bottom: susanoo.rem-calc(200);
             }
+            @include susanoo.media(large) {
+                margin: {
+                    bottom: susanoo.rem-calc(100);
+                }
+            }
         }
         &:nth-child(even) {
             a {
