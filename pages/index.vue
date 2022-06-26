@@ -10,6 +10,7 @@
         <TheStaging />
         <TheFacts />
         <TheSkills />
+        <TheMyWork />
         <TheFloatingLines />
     </div>
 </template>

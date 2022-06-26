@@ -1,0 +1,223 @@
+@use '../susanoo';
+@use '../masks/mixins' as masks;
+@use '../lists/mixins' as lists;
+@use '../links/mixins' as links;
+@use '../grid/mixins' as grid;
+
+.my-work {
+    --animation-initial: 0.6s;
+    --animation-delay: 0.6s;
+
+    &.is-active {
+        .title {
+            @include masks.mask();
+        }
+    }
+    .title {
+        position: relative;
+        margin: {
+            bottom: susanoo.rem-calc(60);
+        }
+        > span {
+            opacity: 0;
+        }
+    }
+    a {
+        @include links.reset();
+        &:hover {
+            color: unset;
+        }
+    }
+    ul {
+        @include lists.reset-list();
+    }
+    li {
+        &:not(:last-child) {
+            margin: {
+                bottom: susanoo.rem-calc(200);
+            }
+        }
+        &:nth-child(even) {
+            a {
+                @include susanoo.media(large, min) {
+                    left: -40%;
+                    --column-start: 6;
+                }
+            }
+            .content {
+                --column-start: 1;
+                order: -1;
+            }
+        }
+    }
+    .container {
+        @include grid.grid();
+        position: relative;
+        &.is-active {
+            a {
+                left: 0;
+            }
+            .content {
+                opacity: 1;
+            }
+            .key-headline {
+                &::before {
+                    width: 0;
+                }
+            }
+            .counter {
+                top: susanoo.rem-calc(-110);
+                opacity: 1;
+            }
+        }
+    }
+    a {
+        @include grid.grid-item-extend();
+        --columns: 7;
+        --column-large: 12;
+        --column-start: 1;
+        --animation-duration: 0.4s;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min: {
+            height: susanoo.rem-calc(550);
+        }
+        border: {
+            radius: 4px;
+        }
+        background: {
+            size: cover;
+        }
+        transition: left var(--animation-duration) var(--animation-initial) linear;
+        @include susanoo.media(large, min) {
+            left: 40%;
+        }
+        @include susanoo.media(large) {
+            margin: {
+                bottom: susanoo.rem-calc(30);
+            }
+        }
+        &:hover {
+            .headline,
+            span {
+                &:not(.counter) {
+                    transform: scale(1.1);
+                }
+            }
+            .counter {
+                transform: scale(1.1);
+                &::before {
+                    height: 100%;
+                }
+            }
+            &::after {
+                width: 100%;
+            }
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: {
+                radius: 4px;
+            }
+            background: {
+                color: #3d3d3d;
+            }
+            opacity: 0.7;
+            z-index: 1;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            border: {
+                radius: 4px;
+            }
+            background: {
+                image: linear-gradient(270deg, #235aa6, #101b3b);
+            }
+            z-index: 2;
+            transition: width var(--animation-delay) ease;
+            animation: unset;
+        }
+        .headline,
+        span {
+            &:not(.counter) {
+                transition: transform 0.15s var(--animation-delay) linear;
+            }
+        }
+        span {
+            display: block;
+        }
+    }
+    .counter {
+        --animation-duration-before: 0.3s;
+        --font-size: #{susanoo.rem-calc(130)};
+        --base-animation-duration: 0.7s;
+
+        position: absolute;
+        top: susanoo.rem-calc(-30);
+        right: susanoo.rem-calc(10);
+        font: {
+            size: var(--font-size);
+            weight: bold;
+        }
+        color: hsl(258deg, 15%, 80%);
+        overflow: hidden;
+        opacity: 0;
+        z-index: 4;
+        transition: transform 0.15s calc(var(--animation-delay)) linear, top var(--base-animation-duration) calc(var(--animation-duration) + var(--animation-initial)), opacity var(--base-animation-duration) calc(var(--animation-duration) + var(--animation-initial));
+        &::before {
+            content: attr(data-text);
+            position: absolute;
+            width: 100%;
+            height: 0;
+            top: -4px;
+            left: -2px;
+            font: {
+                size: calc(var(--font-size) + 3px);
+            }
+            color: white;
+            overflow: hidden;
+            transition: height var(--animation-duration-before) var(--animation-delay) linear;
+        }
+    }
+    .key-headline {
+        z-index: 3;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: {
+                image: linear-gradient(270deg, #f06449, #ef3636);
+            }
+            transition: width var(--animation-initial) linear;
+        }
+    }
+    .content {
+        @include grid.grid-item-extend();
+        --columns: 3;
+        --column-start: 9;
+        --column-start-large: 1;
+        --column-large: 12;
+
+        display: flex;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.2s 1s linear;
+        @include susanoo.media(large) {
+            display: none;
+        }
+    }
+}
