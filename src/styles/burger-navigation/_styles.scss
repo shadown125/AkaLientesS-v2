@@ -253,7 +253,7 @@
         a {
             @include links.reset();
             font: {
-                size: clamp(#{susanoo.rem-calc(50)}, 2vw, #{susanoo.rem-calc(80)});
+                size: clamp(#{susanoo.rem-calc(60)}, 2vw, #{susanoo.rem-calc(80)});
             }
             overflow: hidden;
             &:hover {
