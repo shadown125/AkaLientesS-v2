@@ -11,6 +11,7 @@
         <TheFacts />
         <TheSkills />
         <TheMyWork />
+        <TheFooter />
         <TheFloatingLines />
     </div>
 </template>
