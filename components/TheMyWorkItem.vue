@@ -1,7 +1,7 @@
 <template>
     <div :class="['container', active]" v-observe-visibility="isVisible">
         <a :href="link" target="_blank" rel="external noopener" :style="{backgroundImage: `url(${image})`}">
-            <span class="counter" :data-text="index < 10 ? '0' + (index + 1 ): index + 1">{{ index < 10 ? '0' + (index + 1 ): index + 1 }}</span>
+            <span class="counter" :data-text="getCurrentCounter(index)">{{ getCurrentCounter(index) }}</span>
             <div class="key-headline">
                 <h3 class="headline h3">{{ name }}</h3>
                 <span>{{ description }}</span>
@@ -52,6 +52,9 @@ export default {
             if (visible) {
                 this.active = 'is-active'
             }
+        },
+        getCurrentCounter: (index) => {
+            return index < 10 ? '0' + (index + 1) : index + 1
         }
     }
 }
