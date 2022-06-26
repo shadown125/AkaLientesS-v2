@@ -98,6 +98,9 @@
         padding: 0 susanoo.rem-calc(24);
         .headline {
             display: flex;
+            font: {
+                family: 'Tapestry', sans-serif;
+            }
             flex: {
                 direction: column;
             }
