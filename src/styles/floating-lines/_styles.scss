@@ -3,7 +3,6 @@
 
 .floating-lines {
     --line-color: #3d3d3d;
-    --line-animation-time: 1.5s;
     --line-animation-delay: 0s;
 
     &.is-active {
@@ -21,7 +20,7 @@
                 width: 2px
             }
         }
-        transition: height var(--line-animation-time) var(--line-animation-delay) linear;
+        transition: height var(--floating-lines-animation-time) var(--line-animation-delay) linear;
         @include susanoo.media(medium) {
             &:nth-child(1),
             &:nth-child(3) {
