@@ -1,7 +1,7 @@
 <template>
     <div :class="['grid', active]" v-observe-visibility="{callback: isVisible}">
         <div class="image">
-            <nuxt-img :src="image" :alt-text="[headline]" />
+            <nuxt-img :src="image" :alt="[headline]" />
             <h3 class="headline h3">
                 <span>{{ headline }}</span>
             </h3>
