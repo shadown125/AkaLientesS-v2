@@ -6,7 +6,14 @@
             </h2>
             <ul>
                 <li v-for="(item, index) in items" :key="index">
-                    <TheMyWorkItem :name="item.name" :content="item.content" :description="item.description" :index="index" :image="item.image" :link="item.link" />
+                    <TheMyWorkItem
+                        :name="item.name"
+                        :content="item.content"
+                        :description="item.description"
+                        :index="index"
+                        :image="item.image"
+                        :link="item.link"
+                    />
                 </li>
             </ul>
         </div>
@@ -29,7 +36,7 @@ export default {
                 },
                 {
                     name: 'Susanoo CMS',
-                    description: 'The most ambitions Project',
+                    description: 'The most ambitious Project',
                     link: 'https://github.com/shadown125/susanoo',
                     image: 'susanoo.png',
                     content: 'I really wanted to create something big. Something, I can develop over years.'
