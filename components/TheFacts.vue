@@ -9,7 +9,6 @@
                     <TheFactsItem :text="fact.text" :index="index" :headline="fact.headline" :image="fact.image" :keys="fact.keys" />
                 </li>
             </ul>
-            <TheSidebarLetters :active="active" />
         </div>
     </section>
 </template>

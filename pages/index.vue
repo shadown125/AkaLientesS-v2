@@ -12,6 +12,7 @@
         <TheSkills />
         <TheMyWork />
         <TheFooter />
+        <TheSidebarLetters />
         <TheFloatingLines />
     </div>
 </template>

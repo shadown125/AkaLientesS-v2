@@ -6,9 +6,11 @@
     --animation-delay: 2s;
     --animation-name: mask;
 
-    height: 100%;
     &.is-active {
         .japanese-text {
+            span {
+                opacity: 1;
+            }
             &::before {
                 content: '';
                 position: absolute;
@@ -36,79 +38,38 @@
                     }
                 }
             }
-            span {
-                opacity: 1;
-            }
-        }
-        .rain {
-            opacity: 1;
         }
     }
     .japanese-text {
         @include grid.grid-item-extend();
         position: relative;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         &--left {
             --column-start: 1;
             --columns: 2;
 
             color: var(--color-primary);
-            transform: translateY(-25%);
-            .stem {
-                --background-color: linear-gradient(to bottom, rgba(255, 68, 69, 0), rgba(255, 68, 69, 0.3));
-            }
         }
         &--right {
             --column-start: 11;
             --columns: 2;
 
             color: var(--color-blue);
-            transform: translateY(25%);
-            .rain {
-                top: -50%;
-            }
-            .stem {
-                --background-color: linear-gradient(to bottom, rgba(35, 90, 166, 0), rgba(35, 90, 166, 0.45));
-            }
         }
-        > span {
-            opacity: 0;
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            text-align: center;
-            transition: opacity 0s var(--animation-delay) linear;
+        span {
             font: {
                 family: "Noto Sans Japan";
                 size: susanoo.rem-calc(40);
                 weight: 900;
             }
+            opacity: 0;
+            writing-mode: vertical-rl;
+            margin: {
+                bottom: 100vh;
+            }
+            transition: opacity 0s var(--animation-delay) linear;
         }
-    }
-    .rain {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        z-index: 1;
-        transition: opacity 0.45s 2.35s linear;
-    }
-    .drop {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        height: 100%;
-        width: 2px;
-        animation: drop 1s linear infinite;
-    }
-    .stem {
-        width: 2px;
-        height: 50%;
-        background: {
-            image: var(--background-color, var(--color-primary));
-        }
-        animation: stem 1s linear infinite;
     }
 }

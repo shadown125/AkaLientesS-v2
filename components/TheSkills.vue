@@ -19,7 +19,6 @@
                     </li>
                 </ul>
             </div>
-            <TheSidebarLetters :active="active" />
         </div>
     </section>
 </template>
