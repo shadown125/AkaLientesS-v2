@@ -26,7 +26,7 @@
         opacity: 1;
         transform: translateY(0);
         transition: opacity var(--inital-animation-duration) ease-in-out, transform var(--inital-animation-duration) ease-in-out;
-        button {
+        .button {
             opacity: 1;
             transition: opacity var(--inital-animation-duration) var(--inital-animation-duration) ease-in-out;
         }
@@ -77,24 +77,26 @@
         }
     }
     a {
-        span {
-            display: block;
-            position: relative;
-            text-align: center;
-            color: transparent;
-            overflow: hidden;
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                background: {
-                    color: var(--color-primary);
+        &:not(.button) {
+            span {
+                display: block;
+                position: relative;
+                text-align: center;
+                color: transparent;
+                overflow: hidden;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background: {
+                        color: var(--color-primary);
+                    }
+                    transform: translateY(105%);
+                    height: 100%;
+                    width: 100%;
+                    transition: anchor1 0s;
                 }
-                transform: translateY(105%);
-                height: 100%;
-                width: 100%;
-                transition: anchor1 0s;
             }
         }
     }
@@ -141,10 +143,17 @@
             }
         }
     }
-    button {
+    .button {
         opacity: 0;
         margin: {
             left: auto;
+        }
+        &::before,
+        &::after {
+            animation: unset;
+        }
+        > span {
+            color: white;
         }
     }
 }

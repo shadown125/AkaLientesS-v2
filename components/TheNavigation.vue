@@ -12,9 +12,9 @@
                         </NuxtLink>
                     </li>
                 </ul>
-                <button class="button">
+                <a href="mailto:dawidoleksiuk7@gmail.com" class="button">
                     <span>Contact me</span>
-                </button>
+                </a>
             </nav>
             <nav :class="['section', 'absolute-grid', 'burger-navigation', !windowTop ? '' : 'is-visible', menuState]">
                 <button :class="['menu', menuState]" @click="openAndCloseMenu">
