@@ -48,7 +48,7 @@ export default {
             parent: '#progression',
             showSpinner: false,
             minimum: 0.1,
-            speed: 600,
+            speed: 100,
             trickleSpeed: 30
         })
         NProgress.start()
