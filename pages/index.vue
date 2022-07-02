@@ -1,19 +1,22 @@
 <template>
     <div class="app">
-        <Particles
-            id="tsparticles"
-            :class="['particle', active]"
-            :options="options"
-            :particlesInit="particlesInit"
-        />
-        <TheNavigation />
-        <TheStaging />
-        <TheFacts />
-        <TheSkills />
-        <TheMyWork />
-        <TheFooter />
-        <TheSidebarLetters />
-        <TheFloatingLines />
+        <div v-if="loaded">
+            <Particles
+                id="tsparticles"
+                :class="['particle', active]"
+                :options="options"
+                :particlesInit="particlesInit"
+            />
+            <TheNavigation />
+            <TheStaging />
+            <TheFacts />
+            <TheSkills />
+            <TheMyWork />
+            <TheFooter />
+            <TheSidebarLetters />
+            <TheFloatingLines />
+        </div>
+        <TheInitialPageLoader @is-loaded="isLoaded" />
     </div>
 </template>
 
@@ -40,6 +43,7 @@ export default Vue.extend({
     data () {
         return {
             active: '',
+            loaded: '',
             options: {
                 interactivity: {
                     events: {
@@ -91,6 +95,9 @@ export default Vue.extend({
     methods: {
         particlesInit (engine: Engine): Promise<void> {
             loadFull(engine)
+        },
+        isLoaded (state) {
+            this.loaded = state
         }
     }
 })

@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts">
-
 export default {
     name: 'TheFloatingLines',
     data (): {active: string, time: null | Number} {
@@ -18,10 +17,8 @@ export default {
         }
     },
     mounted () {
-        if (document.readyState) {
-            this.active = 'is-active'
-            this.time = this.$refs.lines.getBoundingClientRect().height / 1000
-        }
+        this.active = 'is-active'
+        this.time = this.$refs.lines.getBoundingClientRect().height / 1000
     },
     methods: {
         setAnimationTime: (time) => {
