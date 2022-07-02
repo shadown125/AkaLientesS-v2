@@ -49,7 +49,7 @@ export default {
             showSpinner: false,
             minimum: 0.1,
             speed: 100,
-            trickleSpeed: 30
+            trickleSpeed: 50
         })
         NProgress.start()
 
@@ -58,7 +58,7 @@ export default {
         }, 10)
     },
     created () {
-        const delay = 2000
+        const delay = 3500
 
         setTimeout(() => {
             clearInterval(this.interval)
