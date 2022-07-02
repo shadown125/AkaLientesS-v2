@@ -62,11 +62,6 @@ export default {
             menuState: '',
             links: [
                 {
-                    id: '1',
-                    route: '#about-me',
-                    name: 'ABOUT ME'
-                },
-                {
                     id: '2',
                     route: '#facts',
                     name: 'FACTS'
