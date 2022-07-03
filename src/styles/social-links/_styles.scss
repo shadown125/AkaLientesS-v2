@@ -1,5 +1,6 @@
 @use '../susanoo';
 @use '../lists';
+@use '../helpers';
 @use 'animations';
 
 .social-links {
@@ -34,7 +35,8 @@
         }
         .icon {
             &::before {
-                color: white;
+                @include helpers.steroid-text();
+                opacity: 1;
             }
         }
         .github {
@@ -69,8 +71,9 @@
     }
     .icon {
         &::before {
-            color: transparent;
-            transition: color 0.25s calc(var(--animation-duration) + var(--loaded-animation)) linear;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.25s calc(var(--animation-duration) + var(--loaded-animation)) linear;
         }
     }
     .github {
