@@ -87,7 +87,7 @@
         @include helpers.steroid-text(0.07em);
 
         font: {
-            size: susanoo.rem-calc(24);
+            size: clamp(#{susanoo.rem-calc(20)}, 2vw, #{susanoo.rem-calc(24)});
         }
         &:not(.button) {
             span {
