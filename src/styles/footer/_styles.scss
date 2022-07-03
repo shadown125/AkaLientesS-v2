@@ -1,4 +1,5 @@
 @use '../susanoo';
+@use '../helpers';
 
 .footer {
     &.is-active {
@@ -19,6 +20,7 @@
         }
     }
     .credits {
+        @include helpers.steroid-text();
         font: {
             family: "Alex Brush";
             size: clamp(#{susanoo.rem-calc(30)}, 6vw, #{susanoo.rem-calc(34)})
@@ -31,7 +33,7 @@
         display: flex;
         justify-content: space-between;
         gap: susanoo.rem-calc(20);
-        opacity: .7;
+        opacity: .9;
         @include susanoo.media(small) {
             justify-content: center;
             align-items: center;
