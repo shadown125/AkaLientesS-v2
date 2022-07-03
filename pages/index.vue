@@ -1,5 +1,6 @@
 <template>
     <div class="app">
+        <TheInitialPageLoader @is-loaded="isLoaded" />
         <Particles
             id="tsparticles"
             :class="['particle', loaded ? active : '']"
@@ -14,7 +15,6 @@
         <TheFooter />
         <TheSidebarLetters :initial-load="loaded" />
         <TheFloatingLines :initial-load="loaded" />
-        <TheInitialPageLoader @is-loaded="isLoaded" />
     </div>
 </template>
 
