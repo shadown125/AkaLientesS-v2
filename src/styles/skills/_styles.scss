@@ -3,6 +3,7 @@
 @use '../lists/mixins' as lists;
 @use '../masks/mixins' as masks;
 @use '../icons/variables' as icons;
+@use '../helpers';
 
 .skills {
     --exp-gap: #{susanoo.rem-calc(20)};
@@ -108,6 +109,7 @@
                         color: var(--color-light-blue);
                     }
                     &:last-child {
+                        @include helpers.steroid-text();
                         font: {
                             size: clamp(#{susanoo.rem-calc(24)}, 4vw, #{susanoo.rem-calc(40)})
                         }

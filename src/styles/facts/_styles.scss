@@ -2,6 +2,7 @@
 @use '../grid/mixins' as grid;
 @use '../masks/mixins' as mask;
 @use '../lists/mixins' as lists;
+@use '../helpers';
 @use 'animations';
 
 .facts {
@@ -285,6 +286,7 @@
                     color: var(--color-primary);
                 }
                 &:not(:first-child) {
+                    @include helpers.steroid-text();
                     font: {
                         size: susanoo.rem-calc(40);
                     }
