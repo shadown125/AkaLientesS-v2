@@ -4,7 +4,7 @@
             <div class="grid">
                 <TheSocialLinks :active="active" />
                 <div class="content">
-                    <h1 class="headline h1">
+                    <h1 v-if="initialLoad" class="headline h1">
                         <TheTypewriter :words="['Aka']" tag="span" :speed="250" :delay="2500" />
                         <TheTypewriter :words="['LientesS']" tag="span" :speed="200" :delay="2500" />
                     </h1>
@@ -47,20 +47,21 @@ export default {
             this.isVisible(true)
         }
     },
-    mounted () {
-        setTimeout(() => {
-            baffle('.author', {
-                characters: '░░▓ ▒▒/▒░ ░██░▒ █░> ██░▓░ █░░▒ ▓>/ ██▓▓ ▓>░/',
-                speed: 50
-            }).reveal(3000)
-        }, this.animationDelay + 1000)
-    },
     methods: {
         isVisible (visible: boolean) {
             if (visible && this.initialLoad) {
                 setTimeout(() => {
                     this.active = 'is-active'
                 }, this.animationDelay)
+            }
+
+            if (this.initialLoad) {
+                setTimeout(() => {
+                    baffle('.author', {
+                        characters: '░░▓ ▒▒/▒░ ░██░▒ █░> ██░▓░ █░░▒ ▓>/ ██▓▓ ▓>░/',
+                        speed: 50
+                    }).reveal(3000)
+                }, this.animationDelay + 1000)
             }
         }
     }
