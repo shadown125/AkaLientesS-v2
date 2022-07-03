@@ -24,17 +24,9 @@ import VueObserveVisibility from 'vue-observe-visibility'
 import Particles from 'particles.vue'
 import type { Engine } from 'tsparticles-engine'
 import { loadFull } from 'tsparticles'
-// @ts-ignore
-import VueMq from 'vue-mq'
 
 Vue.use(VueObserveVisibility)
 Vue.use(Particles)
-Vue.use(VueMq, {
-    breakpoints: {
-        mobile: 800,
-        large: Infinity
-    }
-})
 
 export default Vue.extend({
     name: 'IndexPage',
