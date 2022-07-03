@@ -3,3 +3,9 @@
         shadow: -$offset 0 1px rgb(255 0 0 / 87%), $offset 0 1px rgb(0 255 255 / 87%)
     }
 }
+
+@mixin steroid-lines() {
+    box: {
+        shadow: -0.01em 0 2px rgb(255 0 0 / 87%), 0.01em 0 2px rgb(0 255 255 / 87%)
+    }
+}

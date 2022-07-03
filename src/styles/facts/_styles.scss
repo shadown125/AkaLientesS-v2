@@ -136,6 +136,7 @@
         position: relative;
         height: susanoo.rem-calc(450);
         &::after {
+            @include helpers.steroid-lines();
             content: '';
             position: absolute;
             height: 0;
@@ -199,6 +200,7 @@
         margin: auto 0;
         &::before,
         &::after {
+            @include helpers.steroid-lines();
             content: '';
             position: absolute;
             width: var(--line-width);
@@ -228,6 +230,7 @@
             position: relative;
             &::before,
             &::after {
+                @include helpers.steroid-lines();
                 content: '';
                 position: absolute;
                 bottom: 0;
