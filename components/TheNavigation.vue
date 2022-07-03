@@ -8,7 +8,9 @@
                 <ul>
                     <li v-for="link in links" :key="link.id">
                         <NuxtLink :to="{ path: '/', hash: link.route }">
-                            <span>{{ link.name }}</span>
+                            <span>
+                                <span>{{ link.name }}</span>
+                            </span>
                         </NuxtLink>
                     </li>
                 </ul>

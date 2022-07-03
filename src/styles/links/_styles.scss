@@ -1,6 +1,6 @@
 @use '../susanoo';
 @use '../icons';
-@use 'animations';
+@use '../helpers';
 @use 'mixins';
 
 a {
@@ -25,36 +25,35 @@ a {
             color: var(--color-primary);
         }
         &::before {
-            width: 100%;
+            width: 50%;
+            transform: translateX(100%);
         }
         &::after {
-            width: 100%;
-            animation: hoverAnimation .65s cubic-bezier(.694,.048,.335,1) .15s;
+            width: 50%;
+            transform: translateX(-100%);
         }
+    }
+    &::before,
+    &::after {
+        @include helpers.steroid-lines();
+        content: "";
+        position: absolute;
+        bottom: var(--line-offset);
+        width: 0;
+        height: 5px;
+        transition: width 0.25s linear, transform 0.25s linear;
     }
     &::before {
-        content: "";
-        position: absolute;
         left: 0;
-        bottom: var(--line-offset);
-        width: 0;
-        height: 3px;
         background: {
-            color: var(--color-primary);
+            color: var(--color-secondary);
         }
-        transition: all .25s cubic-bezier(.694,.048,.335,1)
     }
     &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: var(--line-offset);
-        width: 0;
-        height: 3px;
+        right: 0;
         background: {
-            color: var(--color-blue);
+            color: var(--color-tertiary);
         }
-        transition: width .75s cubic-bezier(.694,.048,.335,1) .15s, left .75s ease;
     }
     &.icon {
         @include mixins.reset();
