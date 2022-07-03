@@ -1,5 +1,6 @@
 @use '../susanoo';
 @use '../grid/mixins' as grid;
+@use '../helpers';
 @use 'animations';
 
 .sidebar {
@@ -59,6 +60,8 @@
             color: var(--color-blue);
         }
         span {
+            @include helpers.steroid-text(0.03em);
+
             font: {
                 family: "Noto Sans Japan";
                 size: susanoo.rem-calc(40);
