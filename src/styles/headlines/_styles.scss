@@ -33,7 +33,7 @@ h6 {
             image: linear-gradient(0.30turn, rgb(255 0 0), rgb(0 255 255));
         }
         box: {
-            shadow: -0.05em 0 15px rgb(255 0 0 / 87%), 0.05em 0 15px rgb(0 255 255 / 87%)
+            shadow: -0.05em 0 15px var(--color-tertiary), 0.05em 0 15px var(--color-secondary);
         }
     }
     > span {
