@@ -36,10 +36,11 @@ export default {
             required: true
         }
     },
-    data (): {active: string, animationDelay: Number} {
+    data (): {active: string, animationDelay: Number, animationOnce: Boolean} {
         return {
             active: '',
-            animationDelay: 2000
+            animationDelay: 2000,
+            animationOnce: false
         }
     },
     watch: {
@@ -55,7 +56,9 @@ export default {
                 }, this.animationDelay)
             }
 
-            if (this.initialLoad) {
+            if (this.initialLoad && !this.animationOnce) {
+                this.animationOnce = true
+
                 setTimeout(() => {
                     baffle('.author', {
                         characters: '░░▓ ▒▒/▒░ ░██░▒ █░> ██░▓░ █░░▒ ▓>/ ██▓▓ ▓>░/',
