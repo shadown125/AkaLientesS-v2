@@ -1,7 +1,8 @@
 <template>
     <div :class="['container', active]" v-observe-visibility="isVisible">
-        <a :href="link" target="_blank" rel="external noopener" :style="{backgroundImage: `url(${image})`}">
+        <a :href="link" target="_blank" rel="external noopener">
             <span class="counter" :data-text="getCurrentCounter(index)">{{ getCurrentCounter(index) }}</span>
+            <nuxt-img :src="image" :alt="name" sizes="xl:800px md:700px" format="webp" />
             <div class="key-headline">
                 <h3 class="headline h3">{{ name }}</h3>
                 <span>{{ description }}</span>
