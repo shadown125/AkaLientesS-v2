@@ -2,13 +2,46 @@
 
 Hello, :)
 
+Welcome to AkaLientesS Project which is my Portfolio Website
+
 This is a [Nuxt.js](https://nuxtjs.org) project boostrapped with [`create-nuxt-app`](https://github.com/nuxt/create-nuxt-app)
 
-Preview website can be found under: https://akalientess-v2.netlify.app/
+The Website can be found under: https://www.akalientess.com/
 
 ## Getting Started
 
-Will coming soon...
+First, run the command for install npm packages:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+Then run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You will find all pages under `pages` folder, so you can start editing the page by modifying `pages/index.vue`. The page auto-updates as you edit the file. Also, u will find all Components under `components` folder.
+
+Styles are under `src/styles` folder. Styles are written in Dart Sass and every folder represents module which is styled.
+If you want to change styles you need to run Sass watcher:
+
+```bash
+npm run watch
+```
+For Production, you need to run the build script for styles:
+```bash
+npm run stylebuild
+```
+
+<h3 style="color:orange;">Note!! This Website is in build progress which does not reflect the final state. The current state of the Website is in Alpha (0.5.0v)</h3>
 
 ## Build Setup
 
