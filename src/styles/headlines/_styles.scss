@@ -1,4 +1,5 @@
 @use "../susanoo";
+@use "../helpers";
 @use "variables";
 
 h1,
@@ -27,12 +28,17 @@ h6 {
 }
 
 .title {
-    > span {
+    &::before {
         background: {
-            image: linear-gradient(to right, var(--color-blue), var(--color-primary));
-            clip: text;
+            image: linear-gradient(0.30turn, rgb(255 0 0), rgb(0 255 255));
         }
-        -webkit-text-fill-color: transparent;
+        box: {
+            shadow: -0.05em 0 15px rgb(255 0 0 / 87%), 0.05em 0 15px rgb(0 255 255 / 87%)
+        }
+    }
+    > span {
+        @include helpers.steroid-text();
+        color: white;
     }
 }
 
