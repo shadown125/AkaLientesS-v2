@@ -30,10 +30,21 @@ import baffle from 'baffle'
 
 export default {
     name: 'TheStaging',
+    props: {
+        initialLoad: {
+            type: Boolean,
+            required: true
+        }
+    },
     data (): {active: string, animationDelay: Number} {
         return {
             active: '',
             animationDelay: 2000
+        }
+    },
+    watch: {
+        initialLoad () {
+            this.isVisible(true)
         }
     },
     mounted () {
@@ -46,7 +57,7 @@ export default {
     },
     methods: {
         isVisible (visible: boolean) {
-            if (visible) {
+            if (visible && this.initialLoad) {
                 setTimeout(() => {
                     this.active = 'is-active'
                 }, this.animationDelay)

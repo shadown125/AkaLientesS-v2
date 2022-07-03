@@ -41,8 +41,14 @@ export default {
             activeInitialLoaderSection: ''
         }
     },
+    watch: {
+        isReady () {
+            document.querySelector('body').style.overflow = this.isReady ? 'unset' : 'hidden'
+        }
+    },
     mounted () {
         this.documentIsReady = true
+        document.querySelector('body').style.overflow = 'hidden'
 
         NProgress.configure({
             parent: '#progression',

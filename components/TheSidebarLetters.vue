@@ -12,6 +12,12 @@
 <script lang="ts">
 export default {
     name: 'TheSidebarLetters',
+    props: {
+        initialLoad: {
+            type: Boolean,
+            required: true
+        }
+    },
     data () {
         return {
             windowTop: 0,
@@ -77,6 +83,11 @@ export default {
             ]
         }
     },
+    watch: {
+        initialLoad () {
+            this.isVisible(true)
+        }
+    },
     mounted () {
         window.addEventListener('scroll', this.debounce(this.onScroll, 2))
     },
@@ -95,7 +106,7 @@ export default {
             }
         },
         isVisible (visible: boolean) {
-            if (visible) {
+            if (visible && this.initialLoad) {
                 this.active = 'is-active'
             }
         }

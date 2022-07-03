@@ -54,6 +54,12 @@ import { TheNavigationData } from '../types/theNavigation/theNavigationData'
 
 export default {
     name: 'TheNavigation',
+    props: {
+        initialLoad: {
+            type: Boolean,
+            required: true
+        }
+    },
     data (): TheNavigationData {
         return {
             active: '',
@@ -79,12 +85,17 @@ export default {
             ]
         }
     },
+    watch: {
+        initialLoad () {
+            this.isVisible(true)
+        }
+    },
     mounted () {
         window.addEventListener('scroll', this.debounce(this.onScroll, 10))
     },
     methods: {
         isVisible (visible: boolean) {
-            if (visible) {
+            if (visible && this.initialLoad) {
                 setTimeout(() => {
                     this.active = 'is-active'
                     this.loaded = 'is-loaded'
