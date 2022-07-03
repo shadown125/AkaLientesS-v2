@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div :class="['last-paint', activeLastPaint]">
-                    <h1 class="title h1">
+                    <h1 class="headline h1">
                         <span>AKALIENTESS</span>
                     </h1>
                 </div>
