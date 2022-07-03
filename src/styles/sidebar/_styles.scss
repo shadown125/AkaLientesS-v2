@@ -18,6 +18,7 @@
                 width: 50%;
                 height: 0;
                 animation: var(--animation-name) 1.5s 1.25s ease-in-out;
+                z-index: 2;
             }
             &--left {
                 position: relative;
@@ -43,6 +44,7 @@
     }
     .japanese-text {
         @include grid.grid-item-extend();
+
         position: relative;
         display: flex;
         flex-direction: column;
