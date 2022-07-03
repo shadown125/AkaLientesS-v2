@@ -161,6 +161,9 @@
                 width: 30%;
             }
         }
+        .name {
+            opacity: 0;
+        }
         .spinner {
             position: absolute;
             &.is-active {

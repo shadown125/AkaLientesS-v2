@@ -21,6 +21,7 @@
                     <span />
                     <span />
                     <span />
+                    <span class="name">Menu</span>
                     <svg :class="['spinner', menuState]" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                         <circle
                             class="path"

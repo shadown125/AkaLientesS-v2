@@ -81,7 +81,13 @@ a {
             transition: box-shadown 1s linear;
         }
         > span {
-            display: none;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            opacity: 0;
+            font: {
+                size: susanoo.rem-calc(10)
+            }
         }
         &.github {
             &::before {
