@@ -173,7 +173,7 @@
         }
         &.is-active {
             > span {
-                color: var(--color, var(--color-primary));
+                color: var(--color, var(--color-tertiary));
                 filter: brightness(200%);
                 &::before {
                     filter: blur(20px);
@@ -221,7 +221,7 @@
                 transition: filter 0.25s var(--letter-animation-delay) linear;
             }
             &:nth-child(1) {
-                --color: var(--color-blue);
+                --color: var(--color-secondary);
 
                 &::before {
                     content: 'Y';
@@ -233,14 +233,14 @@
                 }
             }
             &:nth-child(3) {
-                --color: var(--color-blue);
+                --color: var(--color-secondary);
 
                 &::before {
                     content: 'L';
                 }
             }
             &:nth-child(4) {
-                --color: var(--color-blue);
+                --color: var(--color-secondary);
 
                 &::before {
                     content: 'O';
