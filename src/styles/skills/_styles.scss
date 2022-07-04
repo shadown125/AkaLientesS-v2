@@ -55,7 +55,7 @@
             position: relative;
             display: grid;
             border: {
-                color: var(--color-light-blue);
+                color: var(--color-secondary);
                 width: 2px;
                 style: solid;
             }
@@ -103,13 +103,13 @@
                     direction: column;
                 }
                 > span {
+                    @include helpers.steroid-text();
                     display: block;
                     word-break: break-word;
                     &:first-child {
-                        color: var(--color-light-blue);
+                        color: var(--color-secondary);
                     }
                     &:last-child {
-                        @include helpers.steroid-text();
                         font: {
                             size: clamp(#{susanoo.rem-calc(24)}, 4vw, #{susanoo.rem-calc(40)})
                         }
@@ -137,16 +137,16 @@
         transition: opacity 0.3s var(--power-meter-delay) linear;
         &.is-active {
             background: {
-                color: var(--color-active, var(--color-light-blue));
+                color: var(--color-active, var(--color-secondary));
             }
             border: {
-                color: var(--color-active, var(--color-light-blue));
+                color: var(--color-active, var(--color-secondary));
             }
             box-shadow: 0 0 #{susanoo.rem-calc(30)} #{susanoo.rem-calc(8)} var(--color-active, var(--color-light-blue));
             &::before,
             &::after {
                 background: {
-                    color: var(--color-active, var(--color-light-blue));
+                    color: var(--color-active, var(--color-secondary));
                 }
             }
         }
@@ -187,7 +187,7 @@
         height: var(--quader);
         border: {
             width: 2px;
-            color: var(--color-light-blue);
+            color: var(--color-secondary);
             style: solid;
         }
         transform: rotate(45deg);
