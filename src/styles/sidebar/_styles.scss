@@ -26,7 +26,7 @@
                    --animation-name: mask-left;
 
                    background: {
-                       color: var(--color-primary);
+                       color: var(--color-tertiary);
                    }
                }
             }
@@ -36,7 +36,7 @@
                     --animation-name: mask-right;
 
                     background: {
-                        color: var(--color-blue);
+                        color: var(--color-secondary);
                     }
                 }
             }
@@ -53,16 +53,16 @@
             --column-start: 1;
             --columns: 2;
 
-            color: var(--color-primary);
+            color: var(--color-tertiary);
         }
         &--right {
             --column-start: 11;
             --columns: 2;
 
-            color: var(--color-blue);
+            color: var(--color-secondary);
         }
         span {
-            @include helpers.steroid-text(0.03em);
+            @include helpers.steroid-text(0.04em);
 
             font: {
                 family: "Noto Sans Japan";
