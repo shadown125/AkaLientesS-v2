@@ -37,7 +37,7 @@
         width: var(--circle);
         height: var(--circle);
         background: {
-            color: var(--color-primary);
+            color: rgb(255 10 0 / 87%);
         }
         border: {
             radius: susanoo.rem-calc(40);
@@ -58,7 +58,7 @@
             border: {
                 width: 1px;
                 style: solid;
-                color: var(--color-light-blue);
+                color: var(--color-secondary);
                 radius: 50%;
             }
             animation: pulsing 20s linear infinite;
@@ -106,14 +106,14 @@
         }
         &:hover {
             .path {
-                stroke: var(--color-light-blue);
+                stroke: var(--color-secondary);
                 stroke-dashoffset: 0;
                 transform: rotate(450deg);
                 transition: stroke-dashoffset 1.5s ease-in-out, transform 1.5s ease-in-out;
             }
             > span {
                 background: {
-                    color: #22fcb0;
+                    color: var(--color-secondary);
                 }
                 &:nth-child(1) {
                     top: 48%;
@@ -174,7 +174,7 @@
             }
         }
         .path {
-            stroke: var(--color-light-blue);
+            stroke: var(--color-secondary);
             stroke-dasharray: 200;
             stroke-dashoffset: 305%;
             transform-origin: center;
