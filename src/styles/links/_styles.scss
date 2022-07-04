@@ -63,7 +63,7 @@ a {
         width: clamp(#{susanoo.rem-calc(30)}, 2vw, #{susanoo.rem-calc(48)});
         &:hover {
             &::after {
-                box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} var(--color-primary);
+                box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} var(--color-tertiary);
             }
         }
         &::before {

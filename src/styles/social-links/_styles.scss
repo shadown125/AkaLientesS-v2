@@ -63,7 +63,7 @@
             a {
                 &:hover {
                     &::after {
-                        box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} var(--color-blue);
+                        box-shadow: 0 0 #{susanoo.rem-calc(60)} #{susanoo.rem-calc(14)} var(--color-secondary);
                     }
                 }
             }
