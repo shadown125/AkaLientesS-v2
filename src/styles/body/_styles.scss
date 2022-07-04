@@ -7,11 +7,11 @@ body {
     color: white;
     position: relative;
     &::-webkit-scrollbar {
-        width: susanoo.rem-calc(12);
+        width: susanoo.rem-calc(8);
     }
     &::-webkit-scrollbar-thumb {
         background: {
-            color: var(--color-blue);
+            color: var(--color-secondary);
             clip: padding-box;
         }
         border: {
@@ -21,7 +21,7 @@ body {
         }
         &:hover {
             background: {
-                color: var(--color-primary);
+                color: var(--color-tertiary);
             }
         }
     }
