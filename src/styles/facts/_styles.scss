@@ -91,8 +91,8 @@
                 --column-start: 8;
 
                 .headline {
-                    --color-headline: var(--color-blue);
-                    --color-mask: var(--color-blue);
+                    --color-headline: var(--color-secondary);
+                    --color-mask: var(--color-secondary);
 
                     left: -30%;
                     @include susanoo.media(large) {
@@ -117,12 +117,13 @@
                 .headline {
                     --color-headline: var(--color-primary);
                     --color-mask: var(--color-primary);
+                    @include helpers.steroid-text();
                 }
             }
         }
         .content {
             .headline {
-                --color-mask: var(--color-blue);
+                --color-mask: var(--color-secondary);
             }
         }
     }
@@ -162,7 +163,9 @@
             transition: transform 0.65s ease-out;
         }
         .headline {
-            --color-headline: var(--color-primary);
+            --color-headline: var(--color-tertiary);
+            --color-mask: rgb(255 0 0);
+            @include helpers.steroid-text(0.03em);
 
             position: absolute;
             bottom: 10%;
@@ -205,7 +208,7 @@
             position: absolute;
             width: var(--line-width);
             background: {
-                color: var(--color-blue);
+                color: var(--color-secondary);
             }
         }
         &::before {
@@ -227,6 +230,7 @@
             }
         }
         .description {
+            @include helpers.steroid-text();
             position: relative;
             &::before,
             &::after {
@@ -239,12 +243,12 @@
             }
             &::before {
                 background: {
-                    color: var(--color-primary);
+                    color: var(--color-tertiary);
                 }
             }
             &::after {
                 background: {
-                    color: var(--color-blue);
+                    color: var(--color-secondary);
                 }
             }
         }
@@ -253,7 +257,8 @@
             transition: opacity 0s 0.45s linear;
         }
         .headline {
-            --color-headline: var(--color-blue);
+            --color-headline: var(--color-secondary);
+            @include helpers.steroid-text();
         }
     }
     .keys {
@@ -286,6 +291,7 @@
             span {
                 display: block;
                 &:first-child {
+                    @include helpers.steroid-text(0.04em);
                     color: var(--color-primary);
                 }
                 &:not(:first-child) {
