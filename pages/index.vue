@@ -52,7 +52,11 @@ export default Vue.extend({
                     }
                 },
                 particles: {
+                    color: {
+                        value: ['FF0000DD', '00FFFFDD']
+                    },
                     links: {
+                        color: 'FF0000DD',
                         distance: 40,
                         enable: true
                     },
