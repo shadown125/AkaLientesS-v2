@@ -19,17 +19,11 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import VueObserveVisibility from 'vue-observe-visibility'
-import Particles from 'particles.vue'
 import type { Engine } from 'tsparticles-engine'
 import { loadFull } from 'tsparticles'
 
-Vue.use(VueObserveVisibility)
-Vue.use(Particles)
-
-export default Vue.extend({
-    name: 'IndexPage',
+export default {
+    name: 'App',
     data () {
         return {
             active: '',
@@ -80,7 +74,6 @@ export default Vue.extend({
         }
     },
     mounted () {
-        Vue.observable(this.loaded)
         if (document.readyState) {
             setTimeout(() => {
                 this.active = 'is-active'
@@ -88,14 +81,14 @@ export default Vue.extend({
         }
     },
     methods: {
-        particlesInit (engine: Engine): Promise<void> {
+        particlesInit (engine: Engine) {
             loadFull(engine)
         },
         isLoaded (state) {
             this.loaded = state
         }
     }
-})
+}
 </script>
 
-<style src="static/main.css"></style>
+<style src="public/main.css"></style>

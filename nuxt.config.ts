@@ -1,4 +1,6 @@
-export default {
+import { defineNuxtConfig } from 'nuxt'
+
+export default defineNuxtConfig({
     head: {
         title: 'AkaLientesS',
         htmlAttrs: {
@@ -28,13 +30,5 @@ export default {
             { rel: 'icon', type: 'image/png', href: '/favicon.png' },
             { rel: 'apple-touch-icon', href: '/favicon.png' }
         ]
-    },
-    components: true,
-    image: {},
-    target: 'static',
-    buildModules: [
-        '@nuxt/typescript-build',
-        '@nuxt/image'
-    ],
-    build: {}
-}
+    }
+})
